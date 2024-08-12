@@ -1,4 +1,4 @@
-const formRegVisible = document.querySelector(".form-box");
+const formRegVisible = document.querySelector(".formreq-box");
 const formLogVisible = document.querySelector(".login-box");
 const bottonUnVisible = document.querySelector(".closed");
 const bottonReqVisible = document.querySelector(".guest-registration");

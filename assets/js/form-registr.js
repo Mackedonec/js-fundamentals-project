@@ -52,7 +52,7 @@ form.addEventListener("submit", function (event) {
   const nameRegex = /^[\p{L}]{1,}$/u;
   const loginRegex = /^[\p{L}\p{N}_ ]{4,}$/u;
   const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    /^(?=.*\p{Lower})(?=.*\p{Upper})(?=.*\d)(?=.*[@$!%*?&])[\p{L}\p{N}@$!%*?&]{8,}$/u;
   const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   let allData = JSON.parse(localStorage.getItem("registrationData"));
@@ -92,7 +92,7 @@ form.addEventListener("submit", function (event) {
   } else if (allData.some((data) => data.username === guestUsername)) {
     fields[2].element.classList.remove("success");
     fields[2].element.classList.add("error");
-    fields[2].text.innerText = "Це ім'я користувача вже зайнято";
+    fields[2].text.innerText = "Помилка. Цей логін вже зайнятий";
     valid = false;
   } else {
     fields[2].element.classList.remove("error");
@@ -104,7 +104,7 @@ form.addEventListener("submit", function (event) {
     fields[3].element.classList.remove("success");
     fields[3].element.classList.add("error");
     fields[3].text.innerText =
-      "Помилка. Тільки латиниця. Має містити велику літеру, цифру, спец.символ та бути мінімум 8 символів";
+      "Помилка. Має містити велику літеру, цифру, спец.символи @$!%*?& та бути мінімум 8 символів";
     valid = false;
   } else {
     fields[3].element.classList.remove("error");
@@ -120,7 +120,7 @@ form.addEventListener("submit", function (event) {
   } else if (allData.some((data) => data.email === guestEmail)) {
     fields[4].element.classList.remove("success");
     fields[4].element.classList.add("error");
-    fields[4].text.innerText = "Ця електронна почта вже зайнята";
+    fields[4].text.innerText = "Помилка. Ця електронна почта вже зайнята";
     valid = false;
   } else {
     fields[4].element.classList.remove("error");

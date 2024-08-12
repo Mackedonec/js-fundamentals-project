@@ -6,8 +6,14 @@
   padding: 0 15px;
   margin: auto;
 }
+
 .container {
   max-width: 1400px;
   padding: 0 15px;
   margin: auto;
+}
+
+.button {
+  width: 120px;
+  cursor: pointer;
 }
