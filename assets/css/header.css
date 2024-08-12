@@ -122,8 +122,8 @@
       }
       .closed {
         position: absolute;
-        bottom: 20px;
-        right: 48%;
+        top: 20px;
+        right: 10%;
         cursor: pointer;
         &.disabled {
           cursor: none;
