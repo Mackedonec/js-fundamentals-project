@@ -40,22 +40,23 @@ form.addEventListener("submit", function (event) {
   const guestPassword = document.querySelector('input[name="password"]').value;
   const guestEmail = document.querySelector('input[name="email"]').value;
 
-  const existingData = JSON.parse(localStorage.getItem("registrationData"));
+  let allData = JSON.parse(localStorage.getItem("registrationData"));
 
-  if (existingData) {
-    if (existingData.username === guestUsername) {
-      fields[2].element.classList.add("error");
-      fields[2].text.innerText = "Це ім'я користувача вже зайнято";
-      valid = false;
-    }
-    if (existingData.email === guestEmail) {
-      fields[4].element.classList.add("error");
-      fields[4].text.innerText = "Ця електронна адреса вже зайнята";
-      valid = false;
-    }
+  if (!Array.isArray(allData)) {
+    allData = [];
   }
 
-  // Перевірка полів форми
+  if (allData.some((data) => data.username === guestUsername)) {
+    fields[2].element.classList.add("error");
+    fields[2].text.innerText = "Це ім'я користувача вже зайнято";
+    valid = false;
+  }
+  if (allData.some((data) => data.email === guestEmail)) {
+    fields[4].element.classList.add("error");
+    fields[4].text.innerText = "Ця електронна адреса вже зайнята";
+    valid = false;
+  }
+
   if (guestFirstname === "") {
     fields[0].element.classList.add("error");
     fields[0].text.innerText = "error";
@@ -76,7 +77,7 @@ form.addEventListener("submit", function (event) {
     fields[1].text.innerText = "success";
   }
 
-  if (guestUsername === "") {
+  if (guestUsername === "" && !fields[2].element.classList.contains("error")) {
     fields[2].element.classList.add("error");
     fields[2].text.innerText = "error";
     valid = false;
@@ -96,7 +97,7 @@ form.addEventListener("submit", function (event) {
     fields[3].text.innerText = "success";
   }
 
-  if (guestEmail === "") {
+  if (guestEmail === "" && !fields[4].element.classList.contains("error")) {
     fields[4].element.classList.add("error");
     fields[4].text.innerText = "error";
     valid = false;
@@ -114,7 +115,10 @@ form.addEventListener("submit", function (event) {
       password: guestPassword,
       email: guestEmail,
     };
-    localStorage.setItem("registrationData", JSON.stringify(registrationData));
+
+    allData.push(registrationData);
+
+    localStorage.setItem("registrationData", JSON.stringify(allData));
 
     let count = 5;
 
@@ -123,8 +127,8 @@ form.addEventListener("submit", function (event) {
     closeButton.classList.add("disabled");
 
     const closedText = document.querySelector(".closedtext");
-    closedText.innerHTML = `Реєстрація пройшла успішно.
-    Форма закриється за <span class="closed-timer">${count}</span> секунд`;
+    closedText.innerHTML = `Данні заповненно вірно.
+    Реєстрація завершиться через <span class="closed-timer">${count}</span> секунд`;
 
     const timer = document.querySelector(".closed-timer");
 
@@ -146,5 +150,8 @@ form.addEventListener("reset", function () {
     field.text.innerText = field.defaultText;
   });
 });
+
+// const data = JSON.parse(localStorage.getItem("registrationData"));
+// console.table(data);
 
 // localStorage.clear();
