@@ -59,52 +59,54 @@ form.addEventListener("submit", function (event) {
 
   if (guestFirstname === "") {
     fields[0].element.classList.add("error");
-    fields[0].text.innerText = "error";
+    fields[0].text.innerText = "Помилка. Має містити тільки літери";
     valid = false;
   } else {
     fields[0].element.classList.remove("error");
     fields[0].element.classList.add("success");
-    fields[0].text.innerText = "success";
+    fields[0].text.innerText = "Поле заповнне правильно";
   }
 
   if (guestLastname === "") {
     fields[1].element.classList.add("error");
-    fields[1].text.innerText = "error";
+    fields[1].text.innerText = "Помилка. Має містити тільки літери";
     valid = false;
   } else {
     fields[1].element.classList.remove("error");
     fields[1].element.classList.add("success");
-    fields[1].text.innerText = "success";
+    fields[1].text.innerText = "Поле заповнне правильно";
   }
 
-  if (guestUsername === "" && !fields[2].element.classList.contains("error")) {
+  if (guestUsername === "") {
     fields[2].element.classList.add("error");
-    fields[2].text.innerText = "error";
+    fields[2].text.innerText =
+      "Помилка. Може містити літери, цифри, пробіл, підкреслення та бути мінімум 4 символи";
     valid = false;
-  } else if (!fields[2].element.classList.contains("error")) {
+  } else {
     fields[2].element.classList.remove("error");
     fields[2].element.classList.add("success");
-    fields[2].text.innerText = "success";
+    fields[2].text.innerText = "Поле заповнне правильно";
   }
 
   if (guestPassword === "") {
     fields[3].element.classList.add("error");
-    fields[3].text.innerText = "error";
+    fields[3].text.innerText =
+      "Помилка. Має містити велику літеру, цифру, спец.символ та бути мінімум 8 символів";
     valid = false;
   } else {
     fields[3].element.classList.remove("error");
     fields[3].element.classList.add("success");
-    fields[3].text.innerText = "success";
+    fields[3].text.innerText = "Поле заповнне правильно";
   }
 
-  if (guestEmail === "" && !fields[4].element.classList.contains("error")) {
+  if (guestEmail === "") {
     fields[4].element.classList.add("error");
-    fields[4].text.innerText = "error";
+    fields[4].text.innerText = "Помилка. Має бути електроною почтою";
     valid = false;
-  } else if (!fields[4].element.classList.contains("error")) {
+  } else {
     fields[4].element.classList.remove("error");
     fields[4].element.classList.add("success");
-    fields[4].text.innerText = "success";
+    fields[4].text.innerText = "Поле заповнне правильно";
   }
 
   if (valid) {
