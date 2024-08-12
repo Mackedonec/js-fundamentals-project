@@ -86,7 +86,6 @@
                 position: absolute;
                 content: "";
                 background-image: url(../img/close.svg);
-                background-repeat: no-repeat;
                 background-size: cover;
                 background-color: red;
                 top: 2px;
@@ -111,7 +110,6 @@
                 position: absolute;
                 content: "";
                 background-image: url(../img/done.svg);
-                background-repeat: no-repeat;
                 background-size: cover;
                 background-color: lightgreen;
                 top: 2px;
@@ -133,10 +131,24 @@
         }
       }
       .closed {
+        width: 80px;
+        display: inline-block;
         position: absolute;
         top: 20px;
         right: 10%;
         cursor: pointer;
+
+        &::after {
+          position: absolute;
+          content: "";
+          background-image: url(../img/close.svg);
+          background-size: cover;
+          background-color: gray;
+          width: 20px;
+          height: 20px;
+          right: -12px;
+        }
+
         &.disabled {
           cursor: none;
         }

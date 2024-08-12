@@ -120,7 +120,7 @@ form.addEventListener("submit", function (event) {
   } else if (allData.some((data) => data.email === guestEmail)) {
     fields[4].element.classList.remove("success");
     fields[4].element.classList.add("error");
-    fields[4].text.innerText = "Ця електронна адреса вже зайнята";
+    fields[4].text.innerText = "Ця електронна почта вже зайнята";
     valid = false;
   } else {
     fields[4].element.classList.remove("error");
