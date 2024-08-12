@@ -28,13 +28,12 @@ const fields = [
   },
 ];
 
-// Функція для перетворення першої літери кожного слова у верхній регістр
 function capitalizeFirstLetter(string) {
   return string
-    .toLowerCase() // Приведення всіх літер до нижнього регістру
-    .split(" ") // Розбиваємо рядок на окремі слова
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Капіталізуємо першу літеру кожного слова
-    .join(" "); // З'єднуємо слова назад у рядок
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 form.addEventListener("submit", function (event) {
@@ -47,12 +46,11 @@ form.addEventListener("submit", function (event) {
   const guestPassword = document.querySelector('input[name="password"]').value;
   const guestEmail = document.querySelector('input[name="email"]').value;
 
-  // Застосовуємо функцію capitalizeFirstLetter для імені та прізвища
   guestFirstname = capitalizeFirstLetter(guestFirstname);
   guestLastname = capitalizeFirstLetter(guestLastname);
 
-  const nameRegex = /^[a-zA-Zа-яА-ЯёЁіїєІЇЄҐґ]{2,}$/;
-  const loginRegex = /^[-zA-Zа-яА-ЯёЁіїєІЇЄҐґ0-9_ ]{4,}$/;
+  const nameRegex = /^[\p{L}]{1,}$/u;
+  const loginRegex = /^[\p{L}\p{N}_ ]{4,}$/u;
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -63,17 +61,6 @@ form.addEventListener("submit", function (event) {
     allData = [];
   }
 
-  if (allData.some((data) => data.username === guestUsername)) {
-    fields[2].element.classList.add("error");
-    fields[2].text.innerText = "Це ім'я користувача вже зайнято";
-    valid = false;
-  }
-  if (allData.some((data) => data.email === guestEmail)) {
-    fields[4].element.classList.add("error");
-    fields[4].text.innerText = "Ця електронна адреса вже зайнята";
-    valid = false;
-  }
-
   if (nameRegex.test(guestFirstname) === false) {
     fields[0].element.classList.remove("success");
     fields[0].element.classList.add("error");
@@ -82,7 +69,7 @@ form.addEventListener("submit", function (event) {
   } else {
     fields[0].element.classList.remove("error");
     fields[0].element.classList.add("success");
-    fields[0].text.innerText = "Поле заповнне правильно";
+    fields[0].text.innerText = "Поле заповнене правильно";
   }
 
   if (nameRegex.test(guestLastname) === false) {
@@ -93,7 +80,7 @@ form.addEventListener("submit", function (event) {
   } else {
     fields[1].element.classList.remove("error");
     fields[1].element.classList.add("success");
-    fields[1].text.innerText = "Поле заповнне правильно";
+    fields[1].text.innerText = "Поле заповнене правильно";
   }
 
   if (loginRegex.test(guestUsername) === false) {
@@ -102,10 +89,15 @@ form.addEventListener("submit", function (event) {
     fields[2].text.innerText =
       "Помилка. Може містити літери, цифри, пробіл, підкреслення та бути мінімум 4 символи";
     valid = false;
+  } else if (allData.some((data) => data.username === guestUsername)) {
+    fields[2].element.classList.remove("success");
+    fields[2].element.classList.add("error");
+    fields[2].text.innerText = "Це ім'я користувача вже зайнято";
+    valid = false;
   } else {
     fields[2].element.classList.remove("error");
     fields[2].element.classList.add("success");
-    fields[2].text.innerText = "Поле заповнне правильно";
+    fields[2].text.innerText = "Поле заповнене правильно";
   }
 
   if (passwordRegex.test(guestPassword) === false) {
@@ -117,7 +109,7 @@ form.addEventListener("submit", function (event) {
   } else {
     fields[3].element.classList.remove("error");
     fields[3].element.classList.add("success");
-    fields[3].text.innerText = "Поле заповнне правильно";
+    fields[3].text.innerText = "Поле заповнене правильно";
   }
 
   if (mailRegex.test(guestEmail) === false) {
@@ -125,10 +117,15 @@ form.addEventListener("submit", function (event) {
     fields[4].element.classList.add("error");
     fields[4].text.innerText = "Помилка. Має бути електронною поштою";
     valid = false;
+  } else if (allData.some((data) => data.email === guestEmail)) {
+    fields[4].element.classList.remove("success");
+    fields[4].element.classList.add("error");
+    fields[4].text.innerText = "Ця електронна адреса вже зайнята";
+    valid = false;
   } else {
     fields[4].element.classList.remove("error");
     fields[4].element.classList.add("success");
-    fields[4].text.innerText = "Поле заповнне правильно";
+    fields[4].text.innerText = "Поле заповнене правильно";
   }
 
   if (valid) {
@@ -175,7 +172,7 @@ form.addEventListener("reset", function () {
   });
 });
 
-// const data = JSON.parse(localStorage.getItem("registrationData"));
-// console.table(data);
+const data = JSON.parse(localStorage.getItem("registrationData"));
+console.table(data);
 
 // localStorage.clear();
