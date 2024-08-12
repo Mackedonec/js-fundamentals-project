@@ -28,20 +28,31 @@ const fields = [
   },
 ];
 
+// Функція для перетворення першої літери кожного слова у верхній регістр
+function capitalizeFirstLetter(string) {
+  return string
+    .toLowerCase() // Приведення всіх літер до нижнього регістру
+    .split(" ") // Розбиваємо рядок на окремі слова
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Капіталізуємо першу літеру кожного слова
+    .join(" "); // З'єднуємо слова назад у рядок
+}
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   let valid = true;
 
-  const guestFirstname = document.querySelector(
-    'input[name="firstname"]'
-  ).value;
-  const guestLastname = document.querySelector('input[name="lastname"]').value;
+  let guestFirstname = document.querySelector('input[name="firstname"]').value;
+  let guestLastname = document.querySelector('input[name="lastname"]').value;
   const guestUsername = document.querySelector('input[name="username"]').value;
   const guestPassword = document.querySelector('input[name="password"]').value;
   const guestEmail = document.querySelector('input[name="email"]').value;
 
-  const nameRegex = /^[a-zA-Z]{2,}$/;
-  const loginRegex = /^[a-zA-Z0-9_ ]{4,}$/;
+  // Застосовуємо функцію capitalizeFirstLetter для імені та прізвища
+  guestFirstname = capitalizeFirstLetter(guestFirstname);
+  guestLastname = capitalizeFirstLetter(guestLastname);
+
+  const nameRegex = /^[a-zA-Zа-яА-ЯёЁіїєІЇЄҐґ]{2,}$/;
+  const loginRegex = /^[-zA-Zа-яА-ЯёЁіїєІЇЄҐґ0-9_ ]{4,}$/;
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -101,7 +112,7 @@ form.addEventListener("submit", function (event) {
     fields[3].element.classList.remove("success");
     fields[3].element.classList.add("error");
     fields[3].text.innerText =
-      "Помилка. Має містити велику літеру, цифру, спец.символ та бути мінімум 8 символів";
+      "Помилка. Тільки латиниця. Має містити велику літеру, цифру, спец.символ та бути мінімум 8 символів";
     valid = false;
   } else {
     fields[3].element.classList.remove("error");
@@ -112,7 +123,7 @@ form.addEventListener("submit", function (event) {
   if (mailRegex.test(guestEmail) === false) {
     fields[4].element.classList.remove("success");
     fields[4].element.classList.add("error");
-    fields[4].text.innerText = "Помилка. Має бути електроною почтою";
+    fields[4].text.innerText = "Помилка. Має бути електронною поштою";
     valid = false;
   } else {
     fields[4].element.classList.remove("error");
@@ -140,7 +151,7 @@ form.addEventListener("submit", function (event) {
     closeButton.classList.add("disabled");
 
     const closedText = document.querySelector(".closedtext");
-    closedText.innerHTML = `Данні заповненно вірно.
+    closedText.innerHTML = `Данні заповнено вірно.
     Реєстрація завершиться через <span class="closed-timer">${count}</span> секунд`;
 
     const timer = document.querySelector(".closed-timer");
