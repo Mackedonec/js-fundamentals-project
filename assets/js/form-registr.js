@@ -40,6 +40,12 @@ form.addEventListener("submit", function (event) {
   const guestPassword = document.querySelector('input[name="password"]').value;
   const guestEmail = document.querySelector('input[name="email"]').value;
 
+  const nameRegex = /^[a-zA-Z]{2,}$/;
+  const loginRegex = /^[a-zA-Z0-9_ ]{4,}$/;
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
   let allData = JSON.parse(localStorage.getItem("registrationData"));
 
   if (!Array.isArray(allData)) {
@@ -57,7 +63,8 @@ form.addEventListener("submit", function (event) {
     valid = false;
   }
 
-  if (guestFirstname === "") {
+  if (nameRegex.test(guestFirstname) === false) {
+    fields[0].element.classList.remove("success");
     fields[0].element.classList.add("error");
     fields[0].text.innerText = "Помилка. Має містити тільки літери";
     valid = false;
@@ -67,7 +74,8 @@ form.addEventListener("submit", function (event) {
     fields[0].text.innerText = "Поле заповнне правильно";
   }
 
-  if (guestLastname === "") {
+  if (nameRegex.test(guestLastname) === false) {
+    fields[1].element.classList.remove("success");
     fields[1].element.classList.add("error");
     fields[1].text.innerText = "Помилка. Має містити тільки літери";
     valid = false;
@@ -77,7 +85,8 @@ form.addEventListener("submit", function (event) {
     fields[1].text.innerText = "Поле заповнне правильно";
   }
 
-  if (guestUsername === "") {
+  if (loginRegex.test(guestUsername) === false) {
+    fields[2].element.classList.remove("success");
     fields[2].element.classList.add("error");
     fields[2].text.innerText =
       "Помилка. Може містити літери, цифри, пробіл, підкреслення та бути мінімум 4 символи";
@@ -88,7 +97,8 @@ form.addEventListener("submit", function (event) {
     fields[2].text.innerText = "Поле заповнне правильно";
   }
 
-  if (guestPassword === "") {
+  if (passwordRegex.test(guestPassword) === false) {
+    fields[3].element.classList.remove("success");
     fields[3].element.classList.add("error");
     fields[3].text.innerText =
       "Помилка. Має містити велику літеру, цифру, спец.символ та бути мінімум 8 символів";
@@ -99,7 +109,8 @@ form.addEventListener("submit", function (event) {
     fields[3].text.innerText = "Поле заповнне правильно";
   }
 
-  if (guestEmail === "") {
+  if (mailRegex.test(guestEmail) === false) {
+    fields[4].element.classList.remove("success");
     fields[4].element.classList.add("error");
     fields[4].text.innerText = "Помилка. Має бути електроною почтою";
     valid = false;
