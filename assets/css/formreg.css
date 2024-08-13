@@ -55,21 +55,21 @@
           }
 
           &.error {
-            border: 2px solid red;
+            border: 2px solid var(--color-error);
 
             .formreq-input__input {
-              border: 2px solid red;
+              border: 2px solid var(--color-error);
             }
 
             .formreq-input__label {
-              color: red;
+              color: var(--color-error);
 
               &::after {
                 position: absolute;
                 content: "";
                 background-image: url(../img/close.svg);
                 background-size: cover;
-                background-color: red;
+                background-color: var(--color-error);
                 top: 2px;
                 left: 85px;
                 width: 15px;
@@ -78,26 +78,26 @@
             }
 
             .formreq-input__span {
-              color: red;
+              color: var(--color-error);
             }
           }
 
           &.success {
-            border: 2px solid green;
+            border: 2px solid var(--color-success);
 
             .formreq-input__input {
-              border: 2px solid green;
+              border: 2px solid var(--color-success);
             }
 
             .formreq-input__label {
-              color: green;
+              color: var(--color-success);
 
               &::after {
                 position: absolute;
                 content: "";
                 background-image: url(../img/done.svg);
                 background-size: cover;
-                background-color: green;
+                background-color: var(--color-success);
                 top: 2px;
                 left: 85px;
                 width: 15px;
@@ -106,7 +106,7 @@
             }
 
             .formreq-input__span {
-              color: green;
+              color: var(--color-success);
             }
           }
         }
@@ -120,7 +120,7 @@
               content: "";
               background-image: url(../img/close.svg);
               background-size: cover;
-              background-color: red;
+              background-color: var(--color-error);
               width: 20px;
               height: 20px;
               top: 0;
@@ -137,7 +137,7 @@
               content: "";
               background-image: url(../img/done.svg);
               background-size: cover;
-              background-color: green;
+              background-color: var(--color-success);
               width: 20px;
               height: 20px;
               top: 0;
@@ -146,7 +146,7 @@
           }
         }
         .closedtext {
-          color: green;
+          color: var(--color-success);
           height: 30px;
         }
         .closed {

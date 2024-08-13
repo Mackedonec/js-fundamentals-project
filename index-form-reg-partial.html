@@ -1,0 +1,91 @@
+<div class="formreq-box">
+  <div class="formreq-wrapper container">
+    <form action="" method="post" id="reg-form" novalidate>
+      <fieldset class="formreq-fieldset">
+        <legend class="formreq-legend">Форма реєстрації</legend>
+
+        <div class="formreq-input__wrapper firstname">
+          <label class="formreq-input__label" for="first-name">Ім'я:</label>
+          <input
+            class="formreq-input__input"
+            type="text"
+            id="first-name"
+            name="firstname"
+            placeholder="Введіть Ваше ім'я"
+          />
+          <span class="formreq-input__span firstname-text"
+            >Має містити тільки літери</span
+          >
+        </div>
+
+        <div class="formreq-input__wrapper lastname">
+          <label class="formreq-input__label" for="last-name">Призвище:</label>
+          <input
+            class="formreq-input__input"
+            type="text"
+            id="last-name"
+            name="lastname"
+            placeholder="Введіть Ваше призвище"
+          />
+          <span class="formreq-input__span lastname-text"
+            >Має містити тільки літери</span
+          >
+        </div>
+
+        <div class="formreq-input__wrapper username">
+          <label class="formreq-input__label" for="username">Логін:</label>
+          <input
+            class="formreq-input__input"
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Введіть Ваш логін"
+          />
+          <span class="formreq-input__span username-text"
+            >Може містити літери, цифри, пробіл, підкреслення та бути мінімум 4
+            символи</span
+          >
+        </div>
+
+        <div class="formreq-input__wrapper password">
+          <label class="formreq-input__label" for="password">Пароль:</label>
+          <input
+            class="formreq-input__input"
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Введіть Ваш пароль"
+          />
+          <span class="formreq-input__span password-text"
+            >Має містити велику літеру, цифру, спец.символи @$!%*?& та бути
+            мінімум 8 символів</span
+          >
+        </div>
+
+        <div class="formreq-input__wrapper email">
+          <label class="formreq-input__label" for="email">Email:</label>
+          <input
+            class="formreq-input__input"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Введіть Вашу електронну почту"
+          />
+          <span class="formreq-input__span email-text"
+            >Має бути електроною почтою</span
+          >
+        </div>
+        <div class="closedtext"></div>
+        <div class="button-wrapper">
+          <button class="button formreq-reset" type="reset" value="Скинути">
+            Скинути
+          </button>
+          <button class="button formreq-submit" type="submit" value="Надіслати">
+            Надіслати
+          </button>
+          <button class="button closed" type="reset">Закрити</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
