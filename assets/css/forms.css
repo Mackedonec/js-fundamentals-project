@@ -59,6 +59,7 @@
             height: 45px;
             width: 390px;
             padding-top: 10px;
+            font-size: 12px;
           }
 
           &.error {
