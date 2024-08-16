@@ -1,6 +1,6 @@
-const form = document.querySelector("#reg-form");
+const formreg = document.querySelector("#reg-form");
 
-const fields = [
+const fieldsreg = [
   {
     element: document.querySelector(".firstname"),
     text: document.querySelector(".firstname-text"),
@@ -36,7 +36,7 @@ function capitalizeFirstLetter(string) {
     .join(" ");
 }
 
-form.addEventListener("submit", function (event) {
+formreg.addEventListener("submit", function (event) {
   event.preventDefault();
   let valid = true;
 
@@ -52,7 +52,7 @@ form.addEventListener("submit", function (event) {
   const nameRegex = /^[\p{L}]{1,}$/u;
   const loginRegex = /^[\p{L}\p{N}_ ]{4,}$/u;
   const passwordRegex =
-    /^(?=.*\p{Lower})(?=.*\p{Upper})(?=.*\d)(?=.*[@$!%*?&])[\p{L}\p{N}@$!%*?&]{8,}$/u;
+    /^(?=.*\p{Lower})(?=.*\p{Upper})(?=.*\d)(?=.*[@$!%*?,.&])[\p{L}\p{N}@$!%*?,.&]{8,}$/u;
   const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   let allData = JSON.parse(localStorage.getItem("registrationData"));
@@ -62,70 +62,70 @@ form.addEventListener("submit", function (event) {
   }
 
   if (nameRegex.test(guestFirstname) === false) {
-    fields[0].element.classList.remove("success");
-    fields[0].element.classList.add("error");
-    fields[0].text.innerText = "Помилка. Має містити тільки літери";
+    fieldsreg[0].element.classList.remove("success");
+    fieldsreg[0].element.classList.add("error");
+    fieldsreg[0].text.innerText = "Помилка. Має містити тільки літери";
     valid = false;
   } else {
-    fields[0].element.classList.remove("error");
-    fields[0].element.classList.add("success");
-    fields[0].text.innerText = "Поле заповнене правильно";
+    fieldsreg[0].element.classList.remove("error");
+    fieldsreg[0].element.classList.add("success");
+    fieldsreg[0].text.innerText = "Поле заповнене правильно";
   }
 
   if (nameRegex.test(guestLastname) === false) {
-    fields[1].element.classList.remove("success");
-    fields[1].element.classList.add("error");
-    fields[1].text.innerText = "Помилка. Має містити тільки літери";
+    fieldsreg[1].element.classList.remove("success");
+    fieldsreg[1].element.classList.add("error");
+    fieldsreg[1].text.innerText = "Помилка. Має містити тільки літери";
     valid = false;
   } else {
-    fields[1].element.classList.remove("error");
-    fields[1].element.classList.add("success");
-    fields[1].text.innerText = "Поле заповнене правильно";
+    fieldsreg[1].element.classList.remove("error");
+    fieldsreg[1].element.classList.add("success");
+    fieldsreg[1].text.innerText = "Поле заповнене правильно";
   }
 
   if (loginRegex.test(guestUsername) === false) {
-    fields[2].element.classList.remove("success");
-    fields[2].element.classList.add("error");
-    fields[2].text.innerText =
+    fieldsreg[2].element.classList.remove("success");
+    fieldsreg[2].element.classList.add("error");
+    fieldsreg[2].text.innerText =
       "Помилка. Може містити літери, цифри, пробіл, підкреслення та бути мінімум 4 символи";
     valid = false;
   } else if (allData.some((data) => data.username === guestUsername)) {
-    fields[2].element.classList.remove("success");
-    fields[2].element.classList.add("error");
-    fields[2].text.innerText = "Помилка. Цей логін вже зайнятий";
+    fieldsreg[2].element.classList.remove("success");
+    fieldsreg[2].element.classList.add("error");
+    fieldsreg[2].text.innerText = "Помилка. Цей логін вже зайнятий";
     valid = false;
   } else {
-    fields[2].element.classList.remove("error");
-    fields[2].element.classList.add("success");
-    fields[2].text.innerText = "Поле заповнене правильно";
+    fieldsreg[2].element.classList.remove("error");
+    fieldsreg[2].element.classList.add("success");
+    fieldsreg[2].text.innerText = "Поле заповнене правильно";
   }
 
   if (passwordRegex.test(guestPassword) === false) {
-    fields[3].element.classList.remove("success");
-    fields[3].element.classList.add("error");
-    fields[3].text.innerText =
-      "Помилка. Має містити велику літеру, цифру, спец.символи @$!%*?& та бути мінімум 8 символів";
+    fieldsreg[3].element.classList.remove("success");
+    fieldsreg[3].element.classList.add("error");
+    fieldsreg[3].text.innerText =
+      "Помилка. Має містити велику літеру, цифру, спец.символи @$!%*?,.& та бути мінімум 8 символів";
     valid = false;
   } else {
-    fields[3].element.classList.remove("error");
-    fields[3].element.classList.add("success");
-    fields[3].text.innerText = "Поле заповнене правильно";
+    fieldsreg[3].element.classList.remove("error");
+    fieldsreg[3].element.classList.add("success");
+    fieldsreg[3].text.innerText = "Поле заповнене правильно";
   }
 
   if (mailRegex.test(guestEmail) === false) {
-    fields[4].element.classList.remove("success");
-    fields[4].element.classList.add("error");
-    fields[4].text.innerText = "Помилка. Має бути електронною поштою";
+    fieldsreg[4].element.classList.remove("success");
+    fieldsreg[4].element.classList.add("error");
+    fieldsreg[4].text.innerText = "Помилка. Має бути електронною поштою";
     valid = false;
   } else if (allData.some((data) => data.email === guestEmail)) {
-    fields[4].element.classList.remove("success");
-    fields[4].element.classList.add("error");
-    fields[4].text.innerText = "Помилка. Ця електронна почта вже зайнята";
+    fieldsreg[4].element.classList.remove("success");
+    fieldsreg[4].element.classList.add("error");
+    fieldsreg[4].text.innerText = "Помилка. Ця електронна почта вже зайнята";
     valid = false;
   } else {
-    fields[4].element.classList.remove("error");
-    fields[4].element.classList.add("success");
-    fields[4].text.innerText = "Поле заповнене правильно";
+    fieldsreg[4].element.classList.remove("error");
+    fieldsreg[4].element.classList.add("success");
+    fieldsreg[4].text.innerText = "Поле заповнене правильно";
   }
 
   if (valid) {
@@ -143,7 +143,7 @@ form.addEventListener("submit", function (event) {
 
     let count = 5;
 
-    const closeButton = document.querySelector(".closed");
+    const closeButton = document.querySelector(".closedreg");
     closeButton.disabled = true;
     closeButton.classList.add("disabled");
 
@@ -159,20 +159,18 @@ form.addEventListener("submit", function (event) {
 
       if (count < 0) {
         clearInterval(intervalId);
-        form.submit();
+        formreg.submit();
       }
     }, 1000);
   }
 });
 
-form.addEventListener("reset", function () {
-  fields.forEach((field) => {
-    field.element.classList.remove("error", "success");
-    field.text.innerText = field.defaultText;
+formreg.addEventListener("reset", function () {
+  fieldsreg.forEach((fieldsreg) => {
+    fieldsreg.element.classList.remove("error", "success");
+    fieldsreg.text.innerText = fieldsreg.defaultText;
   });
 });
 
 const data = JSON.parse(localStorage.getItem("registrationData"));
 console.table(data);
-
-// localStorage.clear();

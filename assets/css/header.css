@@ -16,6 +16,21 @@
     .guest-enter {
       cursor: pointer;
       text-decoration: underline;
+
+      &.unvisible {
+        margin: 0;
+        display: none;
+      }
+    }
+
+    .guest-cleare {
+      display: none;
+      &.block {
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: underline;
+        margin: 5px 20px;
+      }
     }
   }
 }
