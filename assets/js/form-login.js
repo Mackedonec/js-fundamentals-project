@@ -19,14 +19,17 @@ logForm.addEventListener("submit", function (event) {
 
   const logUsername = document
     .querySelector('input[name="usernamelog"]')
-    .value.trim();
+    .value.trim()
+    .toLowerCase();
   const logPassword = document
     .querySelector('input[name="passwordlog"]')
     .value.trim();
 
   const allData = JSON.parse(localStorage.getItem("registrationData")) || [];
 
-  const userData = allData.find((data) => data.username.trim() === logUsername);
+  const userData = allData.find(
+    (data) => data.username.trim().toLowerCase() === logUsername
+  );
 
   if (!logUsername) {
     logFields[0].element.classList.remove("success");
