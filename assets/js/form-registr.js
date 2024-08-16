@@ -36,13 +36,13 @@ function capitalizeFirstLetter(string) {
     .join(" ");
 }
 
-let allData = JSON.parse(localStorage.getItem("registrationData"));
+let regData = JSON.parse(localStorage.getItem("registrationData"));
 
-if (!Array.isArray(allData)) {
-  allData = [];
+if (!Array.isArray(regData)) {
+  regData = [];
 }
 
-const Administrator = {
+const administrator = {
   firstname: "Admin",
   lastname: "Admin",
   username: "Administrator",
@@ -50,13 +50,13 @@ const Administrator = {
   email: "defaultuser@example.com",
 };
 
-const AdministratorExists = allData.some(
-  (data) => data.username === Administrator.username
+const administratorExists = regData.some(
+  (data) => data.username === administrator.username
 );
 
-if (!AdministratorExists) {
-  allData.push(Administrator);
-  localStorage.setItem("registrationData", JSON.stringify(allData));
+if (!administratorExists) {
+  regData.push(administrator);
+  localStorage.setItem("registrationData", JSON.stringify(regData));
 }
 
 formreg.addEventListener("submit", function (event) {
@@ -106,7 +106,7 @@ formreg.addEventListener("submit", function (event) {
     fieldsreg[2].text.innerText =
       "Помилка. Може містити літери, цифри, пробіл, підкреслення та бути мінімум 4 символи";
     valid = false;
-  } else if (allData.some((data) => data.username === guestUsername)) {
+  } else if (regData.some((data) => data.username === guestUsername)) {
     fieldsreg[2].element.classList.remove("success");
     fieldsreg[2].element.classList.add("error");
     fieldsreg[2].text.innerText = "Помилка. Цей логін вже зайнятий";
@@ -134,7 +134,7 @@ formreg.addEventListener("submit", function (event) {
     fieldsreg[4].element.classList.add("error");
     fieldsreg[4].text.innerText = "Помилка. Має бути електронною поштою";
     valid = false;
-  } else if (allData.some((data) => data.email === guestEmail)) {
+  } else if (regData.some((data) => data.email === guestEmail)) {
     fieldsreg[4].element.classList.remove("success");
     fieldsreg[4].element.classList.add("error");
     fieldsreg[4].text.innerText = "Помилка. Ця електронна почта вже зайнята";
@@ -154,9 +154,9 @@ formreg.addEventListener("submit", function (event) {
       email: guestEmail,
     };
 
-    allData.push(registrationData);
+    regData.push(registrationData);
 
-    localStorage.setItem("registrationData", JSON.stringify(allData));
+    localStorage.setItem("registrationData", JSON.stringify(regData));
 
     let count = 5;
 

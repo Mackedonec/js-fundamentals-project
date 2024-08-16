@@ -25,9 +25,9 @@ logForm.addEventListener("submit", function (event) {
     .querySelector('input[name="passwordlog"]')
     .value.trim();
 
-  const allData = JSON.parse(localStorage.getItem("registrationData")) || [];
+  const regData = JSON.parse(localStorage.getItem("registrationData")) || [];
 
-  const userData = allData.find(
+  const userData = regData.find(
     (data) => data.username.trim().toLowerCase() === logUsername
   );
 
