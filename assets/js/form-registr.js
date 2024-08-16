@@ -36,6 +36,29 @@ function capitalizeFirstLetter(string) {
     .join(" ");
 }
 
+let allData = JSON.parse(localStorage.getItem("registrationData"));
+
+if (!Array.isArray(allData)) {
+  allData = [];
+}
+
+const Administrator = {
+  firstname: "Admin",
+  lastname: "Admin",
+  username: "Administrator",
+  password: "T,bcbvfxrfnf187",
+  email: "defaultuser@example.com",
+};
+
+const AdministratorExists = allData.some(
+  (data) => data.username === Administrator.username
+);
+
+if (!AdministratorExists) {
+  allData.push(Administrator);
+  localStorage.setItem("registrationData", JSON.stringify(allData));
+}
+
 formreg.addEventListener("submit", function (event) {
   event.preventDefault();
   let valid = true;
@@ -54,12 +77,6 @@ formreg.addEventListener("submit", function (event) {
   const passwordRegex =
     /^(?=.*\p{Lower})(?=.*\p{Upper})(?=.*\d)(?=.*[@$!%*?,.&])[\p{L}\p{N}@$!%*?,.&]{8,}$/u;
   const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  let allData = JSON.parse(localStorage.getItem("registrationData"));
-
-  if (!Array.isArray(allData)) {
-    allData = [];
-  }
 
   if (nameRegex.test(guestFirstname) === false) {
     fieldsreg[0].element.classList.remove("success");
@@ -174,3 +191,5 @@ formreg.addEventListener("reset", function () {
 
 const data = JSON.parse(localStorage.getItem("registrationData"));
 console.table(data);
+
+// localStorage.removeItem("registrationData");
