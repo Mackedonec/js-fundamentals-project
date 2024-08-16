@@ -2,6 +2,7 @@ function init() {
   import("./guest-nav.js");
   import("./form-registr.js");
   import("./form-login.js");
+  import("./iflogin.js");
 }
 
 const totalPartials = document.querySelectorAll(

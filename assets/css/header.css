@@ -6,6 +6,10 @@
     justify-content: flex-end;
     align-items: center;
 
+    .guest-name {
+      font-weight: 700;
+    }
+
     .guest-greet,
     .guest-registration,
     .guest-enter {
@@ -23,8 +27,9 @@
       }
     }
 
-    .guest-cleare {
+    .guest-exit {
       display: none;
+
       &.block {
         display: inline-block;
         cursor: pointer;

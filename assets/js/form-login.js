@@ -110,7 +110,7 @@ logForm.addEventListener("reset", function () {
 const data = JSON.parse(localStorage.getItem("loggedInUser"));
 console.table(data);
 
-const logoutButton = document.querySelector(".guest-cleare");
+const logoutButton = document.querySelector(".guest-exit");
 
 logoutButton.addEventListener("click", function () {
   localStorage.removeItem("loggedInUser");
