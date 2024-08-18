@@ -121,7 +121,7 @@ formreg.addEventListener("submit", function (event) {
     fieldsreg[3].element.classList.remove("success");
     fieldsreg[3].element.classList.add("error");
     fieldsreg[3].text.innerText =
-      "Помилка. Має містити велику літеру, цифру, спец.символи @$!%*?,.& та бути мінімум 8 символів";
+      "Помилка. Має містити мінімум одну велику літеру, цифру, символ @$!%*?,.& та бути мінімум 8 символів";
     valid = false;
   } else {
     fieldsreg[3].element.classList.remove("error");

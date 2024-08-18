@@ -7,8 +7,8 @@ if (loggedInUser) {
   const userButtomExit = document.querySelector(".guest-exit");
 
   if (userNameElement) {
-    bottonReqVisible.classList.add("unvisible");
-    bottonLogVisible.classList.add("unvisible");
+    bottonReqVisible.classList.add("hide");
+    bottonLogVisible.classList.add("hide");
     userNameElement.innerText = `${loggedInUser.firstname}`;
     userButtomExit.classList.add("block");
   }
