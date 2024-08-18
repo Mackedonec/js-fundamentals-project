@@ -3,6 +3,7 @@ function init() {
   import("./form-registr.js");
   import("./form-login.js");
   import("./iflogin.js");
+  import("./shop.js");
 }
 
 const totalPartials = document.querySelectorAll(
