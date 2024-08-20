@@ -22,6 +22,13 @@ const slider = (element) => {
 
   let priceGap = 500;
 
+  const updateRangeStyles = () => {
+    let minVal = parseInt(rangeInput[0].value),
+      maxVal = parseInt(rangeInput[1].value);
+    range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
+    range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+  };
+
   priceInput.forEach((input) => {
     input.addEventListener("input", (e) => {
       let minPrice = parseInt(priceInput[0].value),
@@ -30,10 +37,10 @@ const slider = (element) => {
       if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
         if (e.target.className === "input-min") {
           rangeInput[0].value = minPrice;
-          range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+          updateRangeStyles();
         } else {
           rangeInput[1].value = maxPrice;
-          range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+          updateRangeStyles();
         }
       }
     });
@@ -43,6 +50,7 @@ const slider = (element) => {
     input.addEventListener("input", (e) => {
       let minVal = parseInt(rangeInput[0].value),
         maxVal = parseInt(rangeInput[1].value);
+
       if (maxVal - minVal < priceGap) {
         if (e.target.className === "range-min") {
           rangeInput[0].value = maxVal - priceGap;
@@ -52,11 +60,21 @@ const slider = (element) => {
       } else {
         priceInput[0].value = minVal;
         priceInput[1].value = maxVal;
-        range.style.left = (minVal / rangeInput[0].max) * 100 + "%";
-        range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+        updateRangeStyles();
       }
     });
   });
+
+  // Add a reset event listener to update the range styles
+  const form = slider.closest("form");
+  if (form) {
+    form.addEventListener("reset", () => {
+      // Allow the form to reset before updating the styles
+      setTimeout(() => {
+        updateRangeStyles();
+      }, 0);
+    });
+  }
 };
 
-document.querySelectorAll(".element").forEach((n) => slider(n));
+document.querySelectorAll(".search-prise-element").forEach((n) => slider(n));
