@@ -204,15 +204,6 @@
           }
         }
       }
-
-      .shop-item-box {
-        width: 100%;
-        max-width: 75%;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
     }
   }
 }

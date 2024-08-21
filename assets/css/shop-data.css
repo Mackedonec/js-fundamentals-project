@@ -1,0 +1,26 @@
+.shop-cards-box {
+  width: 100%;
+  max-width: 75%;
+  text-align: center;
+
+  .cards-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-items: center;
+    gap: 10px;
+    padding: 10px;
+
+    .card-wrapper {
+      text-align: left;
+      border: 1px solid #7c7a7a5e;
+      display: flex;
+      flex-direction: column;
+
+      width: 100%;
+      max-width: 300px;
+      height: 350px;
+      padding: 5px;
+      overflow: hidden;
+    }
+  }
+}

@@ -65,11 +65,9 @@ const slider = (element) => {
     });
   });
 
-  // Add a reset event listener to update the range styles
   const form = slider.closest("form");
   if (form) {
     form.addEventListener("reset", () => {
-      // Allow the form to reset before updating the styles
       setTimeout(() => {
         updateRangeStyles();
       }, 0);
