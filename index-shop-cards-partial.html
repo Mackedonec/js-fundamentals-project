@@ -7,9 +7,32 @@
           <img class="card-img" src="assets/img/tamplate.png" alt="" />
         </div>
         <div class="card-descript">
-          <h3 class="card-name">name</h3>
-          <p class="card-status">have</p>
-          <p class="card-prise">9999</p>
+          <div class="visible-block">
+            <h3 class="card-item name" data-search-name="search-names">
+              Назва товару 1
+            </h3>
+            <p class="card-item stock" data-stock="in-stock">Є в наявності</p>
+            <p class="card-item prise">
+              ціна: <span data-price="price">9999</span>
+            </p>
+          </div>
+          <div class="invisible block">
+            <p class="card-item descrip">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit
+              ea voluptates eius, molestiae dolor voluptas quis tenetur, natus
+              commodi nobis cum neque sed repellendus, soluta corrupti. Porro
+              sit itaque, eos et non corporis veniam iste, sapiente, unde
+              aperiam nisi optio nam laboriosam sunt fuga molestiae natus sequi.
+              Quas, a cum!
+            </p>
+            <p class="card-item brand" data-brand="brand-1">Виробник 1</p>
+            <p class="card-item series" data-series="series-1">Якась серія 1</p>
+            <p class="card-item model" data-model="model-1">Якась модель 1</p>
+            <p class="card-item country" data-country="country-1">
+              Якась країна 1
+            </p>
+            <p class="card-item color" data-color="color-1">Якийсь уолір 1</p>
+          </div>
         </div>
       </div>
       <div class="card-wrapper" data-card="2">
@@ -46,17 +69,48 @@
 
     <div class="hiden-card-box">
       <div class="hiden-card hiden" data-card="1">
-        <div class="card-img-box">
-          <img class="card-img" src="assets/img/tamplate.png" alt="" />
+        <div class="hiden-card-img-box">
+          <img class="hiden-card-img" src="assets/img/tamplate.png" alt="" />
         </div>
-        <div class="card-descript">
-          <h3 class="card-name">name</h3>
-          <p class="card-status">have</p>
-          <p class="card-prise">9999</p>
-          <h3 class="card-name">name</h3>
-          <p class="card-status">have</p>
-          <p class="card-prise">9999</p>
-          <button class="remove-hiden button">Закрити</button>
+        <div class="hiden-card-descript">
+          <div class="hiden-visible-block">
+            <h3 class="card-item name" data-search-name="search-names">
+              Назва товару 1
+            </h3>
+            <p class="card-item descrip">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit
+              ea voluptates eius, molestiae dolor voluptas quis tenetur, natus
+              commodi nobis cum neque sed repellendus, soluta corrupti. Porro
+              sit itaque, eos et non corporis veniam iste, sapiente, unde
+              aperiam nisi optio nam laboriosam sunt fuga molestiae natus sequi.
+              Quas, a cum!
+            </p>
+            <p class="card-item stock" data-stock="in-stock">Є в наявності</p>
+            <p class="card-item prise">
+              ціна: <span data-price="price">9999</span>
+            </p>
+            <p class="card-item brand" data-brand="brand-1">Виробник 1</p>
+            <p class="card-item series" data-series="series-1">Якась серія 1</p>
+            <p class="card-item model" data-model="model-1">Якась модель 1</p>
+            <p class="card-item country" data-country="country-1">
+              Якась країна 1
+            </p>
+            <p class="card-item color" data-color="color-1">Якийсь уолір 1</p>
+          </div>
+          <div class="button-box">
+            <button class="remove-hiden button">Закрити</button>
+            <div class="shop-counter">
+              <span class="count-plus" data-count="count-plus">-</span>
+              <input
+                type="number"
+                class="shop-count"
+                value="1"
+                data-count="shop-count"
+              />
+              <span class="count-minus" data-count="count-minus">+</span>
+            </div>
+            <button class="add-item button">Купити</button>
+          </div>
         </div>
       </div>
       <div class="hiden-card hiden" data-card="2">
@@ -64,12 +118,18 @@
           <img class="card-img" src="assets/img/tamplate.png" alt="" />
         </div>
         <div class="card-descript">
-          <h3 class="card-name">name</h3>
-          <p class="card-status">have</p>
-          <p class="card-prise">9999</p>
-          <h3 class="card-name">name</h3>
-          <p class="card-status">have</p>
-          <p class="card-prise">9999</p>
+          <div class="visible-block">
+            <h3 class="card-item name" data-search-name="search-names">name</h3>
+            <p class="card-item stock" data-stock="in-stock">have</p>
+            <p class="card-item prise" data-price="price">9999</p>
+            <p class="card-item brand" data-brand="brand-1">Виробник 1</p>
+            <p class="card-item series" data-series="series-1">Якась серія 1</p>
+            <p class="card-item model" data-model="model-1">Якась модель 1</p>
+            <p class="card-item country" data-country="country-1">
+              Якась країна 1
+            </p>
+            <p class="card-item color" data-color="color-1">Якийсь уолір 1</p>
+          </div>
           <button class="remove-hiden button">Закрити</button>
         </div>
       </div>
@@ -78,7 +138,7 @@
           <img class="card-img" src="assets/img/tamplate.png" alt="" />
         </div>
         <div class="card-descript">
-          <h3 class="card-name">name</h3>
+          <h3 class="card-name">name3</h3>
           <p class="card-status">have</p>
           <p class="card-prise">9999</p>
           <h3 class="card-name">name</h3>
@@ -92,7 +152,7 @@
           <img class="card-img" src="assets/img/tamplate.png" alt="" />
         </div>
         <div class="card-descript">
-          <h3 class="card-name">name</h3>
+          <h3 class="card-name">name4</h3>
           <p class="card-status">have</p>
           <p class="card-prise">9999</p>
           <h3 class="card-name">name</h3>

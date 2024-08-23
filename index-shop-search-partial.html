@@ -1,8 +1,18 @@
 <div class="shop-search-box">
   <h2 class="search-box-header">search</h2>
-  <form action="">
+  <form>
+    <div class="button-wrapper">
+      <button class="button search-reset" type="reset" value="Скинути">
+        Скинути
+      </button>
+    </div>
+
     <div class="main-search-box">
-      <input class="main-search" type="search" />
+      <input
+        class="main-search"
+        type="search"
+        data-search-name="search-names"
+      />
     </div>
 
     <div class="search-prise-wrapper">
@@ -41,154 +51,386 @@
     </div>
 
     <div class="search-group-wrapper">
-      <h3 class="search-group-header" data-group="1">group1</h3>
-      <div class="search-group invisible" data-group="1">
+      <h3 class="search-group-header" data-group="1">Наявність</h3>
+      <div class="search-group" data-group="1">
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group1-1"
-            >search item text</label
+            >Товар в наявності</label
           >
-          <input class="search-item" type="checkbox" name="" id="group1-1" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="stock-in"
+            data-stock="in-stock"
+            id="group1-1"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group1-2"
-            >search item text</label
+            >Товар очікується</label
           >
-          <input class="search-item" type="checkbox" name="" id="group1-2" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="stock-wait"
+            data-stock="wait-stock"
+            id="group1-2"
+          />
         </div>
         <div class="search-item-wrapper">
-          <label class="search-item-text underline" for="group1-3"
-            >search item text</label
+          <label class="search-item-text underline" for="group1-2"
+            >Товар закінчився</label
           >
-          <input class="search-item" type="checkbox" name="" id="group1-3" />
-        </div>
-        <div class="search-item-wrapper">
-          <label class="search-item-text underline" for="group1-4"
-            >search item text</label
-          >
-          <input class="search-item" type="checkbox" name="" id="group1-4" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="stock-out"
+            data-stock="out-stock"
+            id="group1-2"
+          />
         </div>
       </div>
     </div>
     <div class="search-group-wrapper">
-      <h3 class="search-group-header" data-group="2">group2</h3>
-      <div class="search-group invisible" data-group="2">
+      <h3 class="search-group-header" data-group="2">Виробник</h3>
+      <div class="search-group" data-group="2">
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group2-1"
-            >search item text</label
+            >Виробник 1</label
           >
-          <input class="search-item" type="checkbox" name="" id="group2-1" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="brand-1"
+            data-brand="brand-1"
+            id="group2-1"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group2-2"
-            >search item text</label
+            >Виробник 2</label
           >
-          <input class="search-item" type="checkbox" name="" id="group2-2" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="brand-2"
+            data-brand="brand-2"
+            id="group2-2"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group2-3"
-            >search item text</label
+            >Виробник 3</label
           >
-          <input class="search-item" type="checkbox" name="" id="group2-3" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="brand-3"
+            data-brand="brand-3"
+            id="group2-3"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group2-4"
-            >search item text</label
+            >Виробник 4</label
           >
-          <input class="search-item" type="checkbox" name="" id="group2-4" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="brand-4"
+            data-brand="brand-4"
+            id="group2-4"
+          />
+        </div>
+        <div class="search-item-wrapper">
+          <label class="search-item-text underline" for="group2-5"
+            >Виробник 5</label
+          >
+          <input
+            class="search-item"
+            type="checkbox"
+            name="brand-5"
+            data-brand="brand-5"
+            id="group2-5"
+          />
+        </div>
+        <div class="search-item-wrapper">
+          <label class="search-item-text underline" for="group2-6"
+            >Інші виробники</label
+          >
+          <input
+            class="search-item"
+            type="checkbox"
+            name="brand-others"
+            data-brand="brand-others"
+            id="group2-6"
+          />
         </div>
       </div>
     </div>
+
     <div class="search-group-wrapper">
-      <h3 class="search-group-header" data-group="3">group3</h3>
+      <h3 class="search-group-header" data-group="3">Серія</h3>
       <div class="search-group invisible" data-group="3">
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group3-1"
-            >search item text</label
+            >Якась серія 1</label
           >
-          <input class="search-item" type="checkbox" name="" id="group3-1" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="series-1"
+            data-series="series-1"
+            id="group3-1"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group3-2"
-            >search item text</label
+            >Якась серія 2</label
           >
-          <input class="search-item" type="checkbox" name="" id="group3-2" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="series-2"
+            data-series="series-2"
+            id="group3-2"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group3-3"
-            >search item text</label
+            >Якась серія 3</label
           >
-          <input class="search-item" type="checkbox" name="" id="group3-3" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="series-3"
+            data-series="series-3"
+            id="group3-3"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group3-4"
-            >search item text</label
+            >Інші серії</label
           >
-          <input class="search-item" type="checkbox" name="" id="group3-4" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="series-others"
+            data-series="series-others"
+            id="group3-4"
+          />
         </div>
       </div>
     </div>
+
     <div class="search-group-wrapper">
-      <h3 class="search-group-header" data-group="4">group4</h3>
+      <h3 class="search-group-header" data-group="4">Модель</h3>
       <div class="search-group invisible" data-group="4">
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group4-1"
-            >search item text</label
+            >Якась модель 1</label
           >
-          <input class="search-item" type="checkbox" name="" id="group4-1" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="model-1"
+            data-model="model-1"
+            id="group4-1"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group4-2"
-            >search item text</label
+            >Якась модель 2</label
           >
-          <input class="search-item" type="checkbox" name="" id="group4-2" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="model-2"
+            data-model="model-2"
+            id="group4-2"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group4-3"
-            >search item text</label
+            >Якась модель 3</label
           >
-          <input class="search-item" type="checkbox" name="" id="group4-3" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="model-3"
+            data-model="model-3"
+            id="group4-3"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group4-4"
-            >search item text</label
+            >Якась модель 4</label
           >
-          <input class="search-item" type="checkbox" name="" id="group4-4" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="model-4"
+            data-model="model-4"
+            id="group4-4"
+          />
+        </div>
+        <div class="search-item-wrapper">
+          <label class="search-item-text underline" for="group4-5"
+            >Якась модель 5</label
+          >
+          <input
+            class="search-item"
+            type="checkbox"
+            name="model-5"
+            data-model="model-5"
+            id="group4-5"
+          />
+        </div>
+        <div class="search-item-wrapper">
+          <label class="search-item-text underline" for="group4-6"
+            >Якась модель 6</label
+          >
+          <input
+            class="search-item"
+            type="checkbox"
+            name="model-6"
+            data-model="model-6"
+            id="group4-6"
+          />
+        </div>
+        <div class="search-item-wrapper">
+          <label class="search-item-text underline" for="group4-7"
+            >Інші моделі</label
+          >
+          <input
+            class="search-item"
+            type="checkbox"
+            name="model-others"
+            data-model="model-others"
+            id="group4-7"
+          />
         </div>
       </div>
     </div>
+
     <div class="search-group-wrapper">
-      <h3 class="search-group-header" data-group="5">group5</h3>
+      <h3 class="search-group-header" data-group="5">Країна виробник</h3>
       <div class="search-group invisible" data-group="5">
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group5-1"
-            >search item text</label
+            >Якась країна 1</label
           >
-          <input class="search-item" type="checkbox" name="" id="group5-1" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="country-1"
+            data-country="country-1"
+            id="group5-1"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group5-2"
-            >search item text</label
+            >Якась країна 2</label
           >
-          <input class="search-item" type="checkbox" name="" id="group5-2" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="country-2"
+            data-country="country-2"
+            id="group5-2"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group5-3"
-            >search item text</label
+            >Якась країна 3</label
           >
-          <input class="search-item" type="checkbox" name="" id="group5-3" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="country-3"
+            data-country="country-3"
+            id="group5-3"
+          />
         </div>
         <div class="search-item-wrapper">
           <label class="search-item-text underline" for="group5-4"
-            >search item text</label
+            >Якась країна 4</label
           >
-          <input class="search-item" type="checkbox" name="" id="group5-4" />
+          <input
+            class="search-item"
+            type="checkbox"
+            name="country-4"
+            data-country="country-4"
+            id="group5-4"
+          />
+        </div>
+        <div class="search-item-wrapper">
+          <label class="search-item-text underline" for="group5-5"
+            >Інші країни</label
+          >
+          <input
+            class="search-item"
+            type="checkbox"
+            name="country-others"
+            data-country="country-others"
+            id="group5-5"
+          />
         </div>
       </div>
     </div>
-    <div class="button-wrapper">
-      <button class="button search-reset" type="reset" value="Скинути">
-        Скинути
-      </button>
+
+    <div class="search-group-wrapper">
+      <h3 class="search-group-header" data-group="6">Колір</h3>
+      <div class="search-group invisible" data-group="6">
+        <div class="search-item-wrapper">
+          <label class="search-item-text underline" for="group6-1"
+            >Якийсь уолір 1</label
+          >
+          <input
+            class="search-item"
+            type="checkbox"
+            name="color-1"
+            data-color="color-1"
+            id="group6-1"
+          />
+        </div>
+        <div class="search-item-wrapper">
+          <label class="search-item-text underline" for="group6-2"
+            >Якийсь уолір 2</label
+          >
+          <input
+            class="search-item"
+            type="checkbox"
+            name="color-2"
+            data-color="color-2"
+            id="group6-2"
+          />
+        </div>
+        <div class="search-item-wrapper">
+          <label class="search-item-text underline" for="group6-3"
+            >Якийсь уолір 3</label
+          >
+          <input
+            class="search-item"
+            type="checkbox"
+            name="color-3"
+            data-color="color-3"
+            id="group6-3"
+          />
+        </div>
+        <div class="search-item-wrapper">
+          <label class="search-item-text underline" for="group6-4"
+            >Інші кольори</label
+          >
+          <input
+            class="search-item"
+            type="checkbox"
+            name="color-others"
+            data-color="color-others"
+            id="group6-4"
+          />
+        </div>
+      </div>
     </div>
   </form>
 </div>
