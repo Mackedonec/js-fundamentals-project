@@ -3,6 +3,7 @@ function init() {
   import("./form-registr.js");
   import("./form-login.js");
   import("./iflogin.js");
+  import("./shop-functionality.js");
   import("./shop-search.js");
   import("./shop-data.js");
 }
@@ -16,7 +17,3 @@ document.body.addEventListener("htmx:afterOnLoad", () => {
   loadedPartialsCount++;
   if (loadedPartialsCount === totalPartials) init();
 });
-
-// import("./guest-nav.js");
-// import("./form-registr.js");
-// import("./form-login.js");

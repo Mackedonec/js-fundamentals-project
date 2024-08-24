@@ -22,8 +22,26 @@
         border: 1px solid black;
         padding: 5px;
 
+        .button-wrapper {
+          .search-reset {
+            position: relative;
+            &::after {
+              position: absolute;
+              content: "";
+              background-image: url(../img/close.svg);
+              background-size: cover;
+              background-color: var(--color-error);
+              top: 2px;
+              right: 5px;
+              width: 15px;
+              height: 15px;
+            }
+          }
+        }
+
         .main-search-box {
           margin-top: 10px;
+
           .main-search {
             height: 35px;
             width: 100%;
