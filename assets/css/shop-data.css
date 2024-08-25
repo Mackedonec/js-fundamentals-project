@@ -48,19 +48,39 @@
 
           .visible-block {
             height: 120px;
+            .card-item {
+              &.name {
+                height: 22px;
+                overflow: hidden;
+              }
+
+              &.stock {
+                &.in-stock {
+                  color: var(--color-success);
+                }
+
+                &.wait-stock {
+                  color: #d8d51b;
+                }
+
+                &.out-stock {
+                  color: var(--color-error);
+                }
+              }
+            }
           }
         }
       }
     }
 
-    .hiden-card-box {
+    .hiden-cards-box {
       height: 0;
 
       &.height {
         min-height: 1000px;
       }
 
-      .hiden-card {
+      .hiden-cards {
         position: relative;
         height: 100%;
         width: 100%;
@@ -81,7 +101,7 @@
           border: 0;
         }
 
-        .hiden-card-wraper {
+        .hiden-cards-wraper {
           display: flex;
           align-items: flex-start;
           text-align: left;
@@ -124,6 +144,20 @@
                 &.descript {
                   max-width: 500px;
                 }
+
+                &.stock {
+                  &.in-stock {
+                    color: var(--color-success);
+                  }
+
+                  &.wait-stock {
+                    color: #d8d51b;
+                  }
+
+                  &.out-stock {
+                    color: var(--color-error);
+                  }
+                }
               }
             }
           }
@@ -164,17 +198,28 @@
               padding: 0 5px;
               margin: 0 5px;
               cursor: pointer;
+
+              &.out-stock {
+                transform: scaleX(0);
+              }
             }
             .shop-count {
               text-align: center;
               width: 30px;
               padding: 5px;
               border: 1px solid black;
+
+              &.out-stock {
+                transform: scaleX(0);
+              }
             }
           }
 
           .add-item {
             position: relative;
+            &.out-stock {
+              transform: scaleX(0);
+            }
 
             &::after {
               position: absolute;

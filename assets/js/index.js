@@ -1,11 +1,11 @@
 function init() {
+  import("./shop-data.js");
   import("./guest-nav.js");
   import("./form-registr.js");
   import("./form-login.js");
   import("./iflogin.js");
-  import("./shop-functionality.js");
   import("./shop-search.js");
-  import("./shop-data.js");
+  import("./shop-functionality.js");
 }
 
 const totalPartials = document.querySelectorAll(

@@ -1,18 +1,16 @@
 const headers = document.querySelectorAll(".search-group-header");
 const cardsBox = document.querySelector(".cards-box");
 const cardsWrapper = document.querySelectorAll(".card-wrapper");
-const cardsHeight = document.querySelector(".hiden-card-box");
+const cardsHeight = document.querySelector(".hiden-cards-box");
 const counterContainer = document.querySelector(".shop-counter");
 const removeHidenButtons = document.querySelectorAll(".remove-hiden");
 const inputField = counterContainer.querySelector(".shop-count");
-const plusButton = counterContainer.querySelector(".count-plus");
-const minusButton = counterContainer.querySelector(".count-minus");
 
 cardsWrapper.forEach((card) => {
   card.addEventListener("click", function (event) {
     const groupId = event.currentTarget.getAttribute("data-card");
     const targetGroup = document.querySelector(
-      `.hiden-card[data-card="${groupId}"]`
+      `.hiden-cards[data-card="${groupId}"]`
     );
     cardsBox.classList.add("hide");
     targetGroup.classList.remove("hiden");
@@ -22,24 +20,41 @@ cardsWrapper.forEach((card) => {
 
 removeHidenButtons.forEach((button) => {
   button.addEventListener("click", function (event) {
-    const targetGroup = event.currentTarget.closest(".hiden-card");
+    const targetGroup = event.currentTarget.closest(".hiden-cards");
     targetGroup.classList.add("hiden");
     cardsBox.classList.remove("hide");
     cardsHeight.classList.remove("height");
-    inputField.value = 1;
   });
 });
 
-plusButton.addEventListener("click", function () {
-  inputField.value = parseInt(inputField.value) + 1;
-});
+const shopCountButtons = document
+  .querySelector(".hiden-cards-box")
+  .addEventListener("click", function (event) {
+    if (event.target.classList.contains("count-plus")) {
+      const inputField = event.target.previousElementSibling;
+      inputField.value = parseInt(inputField.value) + 1;
+    }
 
-minusButton.addEventListener("click", function () {
-  const currentValue = parseInt(inputField.value);
-  if (currentValue > 0) {
-    inputField.value = currentValue - 1;
-  }
-});
+    if (event.target.classList.contains("count-minus")) {
+      const inputField = event.target.nextElementSibling;
+      const currentValue = parseInt(inputField.value);
+      if (currentValue > 0) {
+        inputField.value = currentValue - 1;
+      }
+    }
+
+    if (event.target.classList.contains("remove-hiden")) {
+      const targetGroup = event.target.closest(".hiden-cards");
+      targetGroup.classList.add("hiden");
+      document.querySelector(".cards-box").classList.remove("hide");
+      document.querySelector(".hiden-cards-box").classList.remove("height");
+
+      const inputField = targetGroup.querySelector(".shop-count");
+      if (inputField) {
+        inputField.value = 1;
+      }
+    }
+  });
 
 headers.forEach((header) => {
   header.addEventListener("click", function (event) {
