@@ -108,8 +108,8 @@
 
               .progress {
                 height: 100%;
-                left: 25%;
-                right: 25%;
+                left: 5%;
+                right: 5%;
                 position: absolute;
                 border-radius: 5px;
                 background: var(--color-error);

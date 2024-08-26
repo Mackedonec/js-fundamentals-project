@@ -1,31 +1,6 @@
 const headers = document.querySelectorAll(".search-group-header");
-const cardsBox = document.querySelector(".cards-box");
-const cardsWrapper = document.querySelectorAll(".card-wrapper");
-const cardsHeight = document.querySelector(".hiden-cards-box");
 const counterContainer = document.querySelector(".shop-counter");
-const removeHidenButtons = document.querySelectorAll(".remove-hiden");
 const inputField = counterContainer.querySelector(".shop-count");
-
-cardsWrapper.forEach((card) => {
-  card.addEventListener("click", function (event) {
-    const groupId = event.currentTarget.getAttribute("data-card");
-    const targetGroup = document.querySelector(
-      `.hiden-cards[data-card="${groupId}"]`
-    );
-    cardsBox.classList.add("hide");
-    targetGroup.classList.remove("hiden");
-    cardsHeight.classList.add("height");
-  });
-});
-
-removeHidenButtons.forEach((button) => {
-  button.addEventListener("click", function (event) {
-    const targetGroup = event.currentTarget.closest(".hiden-cards");
-    targetGroup.classList.add("hiden");
-    cardsBox.classList.remove("hide");
-    cardsHeight.classList.remove("height");
-  });
-});
 
 const shopCountButtons = document
   .querySelector(".hiden-cards-box")

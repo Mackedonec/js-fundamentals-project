@@ -6,8 +6,7 @@ const shopCards = [
     searchName: "Якісний товар",
     dataPrice: "price",
     price: "9999",
-    cardDescript:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit ea voluptates eius, molestiae dolor voluptas quis tenetur, natus commodi nobis cum neque sed repellendus, soluta corrupti. Porro sit itaque, eos et non corporis veniam iste, sapiente, unde aperiam nisi optio nam laboriosam sunt fuga molestiae natus sequi. Quas, a cum!",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
     dataBrand: "brand-1",
     brand: "Виробник 1",
     dataSeries: "series-1",
@@ -19,90 +18,6 @@ const shopCards = [
     dataColor: "color-1",
     color: "Якийсь колір 1",
     stock: 100,
-  },
-  {
-    id: 2,
-    img: "assets/img/tamplate.png",
-    dataSearchName: "search-names",
-    searchName: "Гарний товар",
-    dataPrice: "price",
-    price: "7500",
-    cardDescript:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit ea voluptates eius, molestiae dolor voluptas quis tenetur, natus commodi nobis cum neque sed repellendus, soluta corrupti. Porro sit itaque, eos et non corporis veniam iste, sapiente, unde aperiam nisi optio nam laboriosam sunt fuga molestiae natus sequi. Quas, a cum!",
-    dataBrand: "brand-2",
-    brand: "Виробник 2",
-    dataSeries: "series-2",
-    series: "Якась серія 2",
-    dataModel: "model-2",
-    model: "Якась модель 2",
-    dataCountry: "country-2",
-    country: "Якась країна 2",
-    dataColor: "color-2",
-    color: "Якийсь колір 2",
-    stock: 50,
-  },
-  {
-    id: 3,
-    img: "assets/img/tamplate.png",
-    dataSearchName: "search-names",
-    searchName: "Дуже якісний товар",
-    dataPrice: "price",
-    price: "11000",
-    cardDescript:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit ea voluptates eius, molestiae dolor voluptas quis tenetur, natus commodi nobis cum neque sed repellendus, soluta corrupti. Porro sit itaque, eos et non corporis veniam iste, sapiente, unde aperiam nisi optio nam laboriosam sunt fuga molestiae natus sequi. Quas, a cum!",
-    dataBrand: "brand-1",
-    brand: "Виробник 1",
-    dataSeries: "series-3",
-    series: "Якась серія 3",
-    dataModel: "model-2",
-    model: "Якась модель 2",
-    dataCountry: "country-3",
-    country: "Якась країна 3",
-    dataColor: "color-3",
-    color: "Якийсь колір 3",
-    stock: 50,
-  },
-  {
-    id: 4,
-    img: "assets/img/tamplate.png",
-    dataSearchName: "search-names",
-    searchName: "Дорогий та якісний товар",
-    dataPrice: "price",
-    price: "18000",
-    cardDescript:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit ea voluptates eius, molestiae dolor voluptas quis tenetur, natus commodi nobis cum neque sed repellendus, soluta corrupti. Porro sit itaque, eos et non corporis veniam iste, sapiente, unde aperiam nisi optio nam laboriosam sunt fuga molestiae natus sequi. Quas, a cum!",
-    dataBrand: "brand-4",
-    brand: "Виробник 4",
-    dataSeries: "series-1",
-    series: "Якась серія 1",
-    dataModel: "model-2",
-    model: "Якась модель 2",
-    dataCountry: "country-3",
-    country: "Якась країна 3",
-    dataColor: "color-others",
-    color: "Інший колір",
-    stock: 10,
-  },
-  {
-    id: 5,
-    img: "assets/img/tamplate.png",
-    dataSearchName: "search-names",
-    searchName: "Дешевий товар",
-    dataPrice: "price",
-    price: "5000",
-    cardDescript:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit ea voluptates eius, molestiae dolor voluptas quis tenetur, natus commodi nobis cum neque sed repellendus, soluta corrupti. Porro sit itaque, eos et non corporis veniam iste, sapiente, unde aperiam nisi optio nam laboriosam sunt fuga molestiae natus sequi. Quas, a cum!",
-    dataBrand: "brand-4",
-    brand: "Виробник 4",
-    dataSeries: "series-1",
-    series: "Якась серія 1",
-    dataModel: "model-6",
-    model: "Якась модель 6",
-    dataCountry: "country-2",
-    country: "Якась країна 2",
-    dataColor: "color-2",
-    color: "Якийсь колір 2",
-    stock: 0,
   },
 ].map((card) => {
   if (card.stock > 10) {
@@ -215,5 +130,127 @@ function renderHidenCard(shopCards) {
   cardContainer.innerHTML = cardsHtml;
 }
 renderHidenCard(shopCards);
+
+//---------------------------------
+
+function renderAllCards() {
+  renderCard(shopCards);
+  renderHidenCard(shopCards);
+  initializeCardEventListeners();
+}
+
+function filterCards(
+  searchQuery,
+  minPrice,
+  maxPrice,
+  availabilityFilters,
+  cards
+) {
+  return cards.filter((card) => {
+    const matchesName = card.searchName
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const price = parseInt(card.price);
+    const matchesPrice = price >= minPrice && price <= maxPrice;
+
+    const dataStock = card.dataStock;
+    const matchesAvailability =
+      availabilityFilters.length === 0 ||
+      availabilityFilters.includes(dataStock);
+
+    return matchesName && matchesPrice && matchesAvailability;
+  });
+}
+
+function updateCardsDisplay(filteredCards) {
+  renderCard(filteredCards);
+  renderHidenCard(filteredCards);
+  initializeCardEventListeners();
+}
+
+const searchInput = document.querySelector(".main-search");
+const minPriceInput = document.querySelector(".input-min");
+const maxPriceInput = document.querySelector(".input-max");
+const rangeInputs = document.querySelectorAll(".range-input input");
+const availabilityCheckboxes = document.querySelectorAll(".search-item");
+
+searchInput.addEventListener("input", applyFilters);
+[minPriceInput, maxPriceInput, ...rangeInputs].forEach((input) => {
+  input.addEventListener("input", applyFilters);
+});
+availabilityCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", applyFilters);
+});
+
+function applyFilters() {
+  const searchQuery = searchInput.value;
+  const minPrice = parseInt(minPriceInput.value);
+  const maxPrice = parseInt(maxPriceInput.value);
+
+  const availabilityFilters = Array.from(availabilityCheckboxes)
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.dataset.stock);
+
+  const filteredCards = filterCards(
+    searchQuery,
+    minPrice,
+    maxPrice,
+    availabilityFilters,
+    shopCards
+  );
+  updateCardsDisplay(filteredCards);
+}
+
+function initializeCardEventListeners() {
+  const cardsBox = document.querySelector(".cards-box");
+  const cardsHeight = document.querySelector(".hiden-cards-box");
+  const cardsWrapper = document.querySelectorAll(".card-wrapper");
+  const removeHidenButtons = document.querySelectorAll(".remove-hiden");
+
+  cardsWrapper.forEach((card) => {
+    card.addEventListener("click", function (event) {
+      const groupId = event.currentTarget.getAttribute("data-card");
+      const targetGroup = document.querySelector(
+        `.hiden-cards[data-card="${groupId}"]`
+      );
+      cardsBox.classList.add("hide");
+      targetGroup.classList.remove("hiden");
+      cardsHeight.classList.add("height");
+    });
+  });
+
+  removeHidenButtons.forEach((button) => {
+    button.addEventListener("click", function (event) {
+      const targetGroup = event.currentTarget.closest(".hiden-cards");
+      targetGroup.classList.add("hiden");
+      cardsBox.classList.remove("hide");
+      cardsHeight.classList.remove("height");
+    });
+  });
+}
+
+renderAllCards();
+
+const resetButton = document.querySelector(".search-reset");
+
+resetButton.addEventListener("click", function () {
+  searchInput.value = "";
+  minPriceInput.value = 6000; // Default value
+  maxPriceInput.value = 19000; // Default value
+  rangeInputs[0].value = 6000; // Default value
+  rangeInputs[1].value = 19000; // Default value
+
+  availabilityCheckboxes.forEach((checkbox) => (checkbox.checked = false));
+
+  const cardsBox = document.querySelector(".cards-box");
+  const cardsHeight = document.querySelector(".hiden-cards-box");
+  const hiddenCards = document.querySelectorAll(".hiden-cards");
+
+  cardsBox.classList.remove("hide");
+  cardsHeight.classList.remove("height");
+  hiddenCards.forEach((card) => card.classList.add("hiden"));
+
+  updateCardsDisplay(shopCards);
+});
 
 localStorage.setItem("shopCards", JSON.stringify(shopCards));
