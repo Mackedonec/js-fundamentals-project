@@ -1,6 +1,17 @@
 const headers = document.querySelectorAll(".search-group-header");
 const counterContainer = document.querySelector(".shop-counter");
 const inputField = counterContainer.querySelector(".shop-count");
+const buttonNext = document.querySelector(".button-next");
+const buttonNextTwo = document.querySelector(".button-next2");
+const shopCardsbox = document.querySelector(".shop-cards-box");
+
+buttonNext.addEventListener("click", function () {
+  shopCardsbox.classList.add("more-height");
+});
+
+buttonNextTwo.addEventListener("click", function () {
+  shopCardsbox.classList.add("more-height2");
+});
 
 const shopCountButtons = document
   .querySelector(".hiden-cards-box")

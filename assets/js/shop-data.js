@@ -77,7 +77,7 @@ const shopCards = [
     country: "Якась країна 3",
     dataColor: "color-others",
     color: "Інший колір",
-    stock: 10,
+    stock: 40,
   },
   {
     id: 5,
@@ -97,7 +97,307 @@ const shopCards = [
     country: "Якась країна 2",
     dataColor: "color-2",
     color: "Якийсь колір 2",
-    stock: 0,
+    stock: 70,
+  },
+  {
+    id: 6,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Дешевий не якісний товар",
+    dataPrice: "price",
+    price: "2500",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-others",
+    brand: "Інший виробни",
+    dataSeries: "series-others",
+    series: "Інша серія",
+    dataModel: "model-others",
+    model: "Інша модель",
+    dataCountry: "country-others",
+    country: "Інша країна",
+    dataColor: "color-3",
+    color: "Якийсь колір 3",
+    stock: 70,
+  },
+  {
+    id: 7,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Дуже дорогий товар",
+    dataPrice: "price",
+    price: "23000",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-5",
+    brand: "Виробник 5",
+    dataSeries: "series-1",
+    series: "Якась серія 1",
+    dataModel: "model-3",
+    model: "Якась модель 3",
+    dataCountry: "country-4",
+    country: "Якась країна 4",
+    dataColor: "color-1",
+    color: "Якийсь колір 1",
+    stock: 45,
+  },
+  {
+    id: 8,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Просто товар",
+    dataPrice: "price",
+    price: "7500",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-3",
+    brand: "Виробник 3",
+    dataSeries: "series-others",
+    series: "Інша серія",
+    dataModel: "model-5",
+    model: "Якась модель 5",
+    dataCountry: "country-3",
+    country: "Якась країна 3",
+    dataColor: "color-3",
+    color: "Якийсь колір 3",
+    stock: 80,
+  },
+  {
+    id: 9,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Гарний товар",
+    dataPrice: "price",
+    price: "9500",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-2",
+    brand: "Виробник 2",
+    dataSeries: "series-1",
+    series: "Якась серія 1",
+    dataModel: "model-5",
+    model: "Якась модель 5",
+    dataCountry: "country-others",
+    country: "Інша країна",
+    dataColor: "color-1",
+    color: "Якийсь колір 1",
+    stock: 9,
+  },
+  {
+    id: 10,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Дуже дорогий товар",
+    dataPrice: "price",
+    price: "24000",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-4",
+    brand: "Виробник 4",
+    dataSeries: "series-3",
+    series: "Якась серія 3",
+    dataModel: "model-3",
+    model: "Якась модель 3",
+    dataCountry: "country-1",
+    country: "Якась країна 1",
+    dataColor: "color-3",
+    color: "Якийсь колір 3",
+    stock: 15,
+  },
+  {
+    id: 11,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Якісний товар",
+    dataPrice: "price",
+    price: "9999",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+    dataBrand: "brand-1",
+    brand: "Виробник 1",
+    dataSeries: "series-1",
+    series: "Якась серія 1",
+    dataModel: "model-1",
+    model: "Якась модель 1",
+    dataCountry: "country-1",
+    country: "Якась країна 1",
+    dataColor: "color-1",
+    color: "Якийсь колір 1",
+    stock: 100,
+  },
+  {
+    id: 12,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Гарний товар",
+    dataPrice: "price",
+    price: "7500",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-2",
+    brand: "Виробник 2",
+    dataSeries: "series-2",
+    series: "Якась серія 2",
+    dataModel: "model-2",
+    model: "Якась модель 2",
+    dataCountry: "country-2",
+    country: "Якась країна 2",
+    dataColor: "color-2",
+    color: "Якийсь колір 2",
+    stock: 50,
+  },
+  {
+    id: 13,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Дуже якісний товар",
+    dataPrice: "price",
+    price: "11000",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-1",
+    brand: "Виробник 1",
+    dataSeries: "series-3",
+    series: "Якась серія 3",
+    dataModel: "model-2",
+    model: "Якась модель 2",
+    dataCountry: "country-3",
+    country: "Якась країна 3",
+    dataColor: "color-3",
+    color: "Якийсь колір 3",
+    stock: 50,
+  },
+  {
+    id: 14,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Дорогий та якісний товар",
+    dataPrice: "price",
+    price: "18000",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-4",
+    brand: "Виробник 4",
+    dataSeries: "series-1",
+    series: "Якась серія 1",
+    dataModel: "model-2",
+    model: "Якась модель 2",
+    dataCountry: "country-3",
+    country: "Якась країна 3",
+    dataColor: "color-others",
+    color: "Інший колір",
+    stock: 40,
+  },
+  {
+    id: 15,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Дешевий товар",
+    dataPrice: "price",
+    price: "5000",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-4",
+    brand: "Виробник 4",
+    dataSeries: "series-1",
+    series: "Якась серія 1",
+    dataModel: "model-6",
+    model: "Якась модель 6",
+    dataCountry: "country-2",
+    country: "Якась країна 2",
+    dataColor: "color-2",
+    color: "Якийсь колір 2",
+    stock: 70,
+  },
+  {
+    id: 16,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Дешевий не якісний товар",
+    dataPrice: "price",
+    price: "2500",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-others",
+    brand: "Інший виробни",
+    dataSeries: "series-others",
+    series: "Інша серія",
+    dataModel: "model-others",
+    model: "Інша модель",
+    dataCountry: "country-others",
+    country: "Інша країна",
+    dataColor: "color-3",
+    color: "Якийсь колір 3",
+    stock: 70,
+  },
+  {
+    id: 17,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Дуже дорогий товар",
+    dataPrice: "price",
+    price: "23000",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-5",
+    brand: "Виробник 5",
+    dataSeries: "series-1",
+    series: "Якась серія 1",
+    dataModel: "model-3",
+    model: "Якась модель 3",
+    dataCountry: "country-4",
+    country: "Якась країна 4",
+    dataColor: "color-1",
+    color: "Якийсь колір 1",
+    stock: 45,
+  },
+  {
+    id: 18,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Просто товар",
+    dataPrice: "price",
+    price: "7500",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-3",
+    brand: "Виробник 3",
+    dataSeries: "series-others",
+    series: "Інша серія",
+    dataModel: "model-5",
+    model: "Якась модель 5",
+    dataCountry: "country-3",
+    country: "Якась країна 3",
+    dataColor: "color-3",
+    color: "Якийсь колір 3",
+    stock: 80,
+  },
+  {
+    id: 19,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Гарний товар",
+    dataPrice: "price",
+    price: "9500",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-2",
+    brand: "Виробник 2",
+    dataSeries: "series-1",
+    series: "Якась серія 1",
+    dataModel: "model-5",
+    model: "Якась модель 5",
+    dataCountry: "country-others",
+    country: "Інша країна",
+    dataColor: "color-1",
+    color: "Якийсь колір 1",
+    stock: 9,
+  },
+  {
+    id: 20,
+    img: "assets/img/tamplate.png",
+    dataSearchName: "search-names",
+    searchName: "Дуже дорогий товар",
+    dataPrice: "price",
+    price: "24000",
+    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
+    dataBrand: "brand-4",
+    brand: "Виробник 4",
+    dataSeries: "series-3",
+    series: "Якась серія 3",
+    dataModel: "model-3",
+    model: "Якась модель 3",
+    dataCountry: "country-1",
+    country: "Якась країна 1",
+    dataColor: "color-3",
+    color: "Якийсь колір 3",
+    stock: 15,
   },
 ].map((card) => {
   if (card.stock > 10) {
@@ -226,6 +526,9 @@ function filterCards(
   availabilityFilters,
   brandFilters,
   seriesFilters,
+  modelFilters,
+  countryFilters,
+  colorFilters,
   cards
 ) {
   return cards.filter((card) => {
@@ -248,12 +551,27 @@ function filterCards(
     const matchesSeries =
       seriesFilters.length === 0 || seriesFilters.includes(dataSeries);
 
+    const dataModel = card.dataModel;
+    const matchesModel =
+      modelFilters.length === 0 || modelFilters.includes(dataModel);
+
+    const dataCountry = card.dataCountry;
+    const matchesCountry =
+      countryFilters.length === 0 || countryFilters.includes(dataCountry);
+
+    const dataColor = card.dataColor;
+    const matchesColor =
+      colorFilters.length === 0 || colorFilters.includes(dataColor);
+
     return (
       matchesName &&
       matchesPrice &&
       matchesAvailability &&
       matchesBrand &&
-      matchesSeries
+      matchesSeries &&
+      matchesModel &&
+      matchesCountry &&
+      matchesColor
     );
   });
 }
@@ -273,6 +591,11 @@ const availabilityCheckboxes = document.querySelectorAll(
 );
 const brandCheckboxes = document.querySelectorAll(".search-item[data-brand]");
 const seriesCheckboxes = document.querySelectorAll(".search-item[data-series]");
+const modelCheckboxes = document.querySelectorAll(".search-item[data-model]");
+const countryCheckboxes = document.querySelectorAll(
+  ".search-item[data-country]"
+);
+const colorCheckboxes = document.querySelectorAll(".search-item[data-color]");
 
 searchInput.addEventListener("input", applyFilters);
 [minPriceInput, maxPriceInput, ...rangeInputs].forEach((input) => {
@@ -285,6 +608,15 @@ brandCheckboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", applyFilters);
 });
 seriesCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", applyFilters);
+});
+modelCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", applyFilters);
+});
+countryCheckboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", applyFilters);
+});
+colorCheckboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", applyFilters);
 });
 
@@ -305,6 +637,18 @@ function applyFilters() {
     .filter((checkbox) => checkbox.checked)
     .map((checkbox) => checkbox.dataset.series);
 
+  const modelFilters = Array.from(modelCheckboxes)
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.dataset.model);
+
+  const countryFilters = Array.from(countryCheckboxes)
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.dataset.country);
+
+  const colorFilters = Array.from(colorCheckboxes)
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.dataset.color);
+
   const filteredCards = filterCards(
     searchQuery,
     minPrice,
@@ -312,6 +656,9 @@ function applyFilters() {
     availabilityFilters,
     brandFilters,
     seriesFilters,
+    modelFilters,
+    countryFilters,
+    colorFilters,
     shopCards
   );
   updateCardsDisplay(filteredCards);
@@ -322,6 +669,8 @@ function initializeCardEventListeners() {
   const cardsHeight = document.querySelector(".hiden-cards-box");
   const cardsWrapper = document.querySelectorAll(".card-wrapper");
   const removeHidenButtons = document.querySelectorAll(".remove-hiden");
+  const buttonNext = document.querySelector(".button-next");
+  const buttonNextTwo = document.querySelector(".button-next2");
 
   cardsWrapper.forEach((card) => {
     card.addEventListener("click", function (event) {
@@ -330,6 +679,8 @@ function initializeCardEventListeners() {
         `.hiden-cards[data-card="${groupId}"]`
       );
       cardsBox.classList.add("hide");
+      buttonNext.classList.add("hide");
+      buttonNextTwo.classList.add("hide");
       targetGroup.classList.remove("hiden");
       cardsHeight.classList.add("height");
     });
@@ -340,6 +691,8 @@ function initializeCardEventListeners() {
       const targetGroup = event.currentTarget.closest(".hiden-cards");
       targetGroup.classList.add("hiden");
       cardsBox.classList.remove("hide");
+      buttonNext.classList.remove("hide");
+      buttonNextTwo.classList.remove("hide");
       cardsHeight.classList.remove("height");
     });
   });
@@ -351,22 +704,34 @@ const resetButton = document.querySelector(".search-reset");
 
 resetButton.addEventListener("click", function () {
   searchInput.value = "";
-  minPriceInput.value = 6000;
-  maxPriceInput.value = 19000;
-  rangeInputs[0].value = 6000;
-  rangeInputs[1].value = 19000;
+  minPriceInput.value = 1000;
+  maxPriceInput.value = 24000;
+  rangeInputs[0].value = 1000;
+  rangeInputs[1].value = 24000;
 
   availabilityCheckboxes.forEach((checkbox) => (checkbox.checked = false));
   brandCheckboxes.forEach((checkbox) => (checkbox.checked = false));
   seriesCheckboxes.forEach((checkbox) => (checkbox.checked = false));
+  modelCheckboxes.forEach((checkbox) => (checkbox.checked = false));
+  countryCheckboxes.forEach((checkbox) => (checkbox.checked = false));
+  colorCheckboxes.forEach((checkbox) => (checkbox.checked = false));
 
   const cardsBox = document.querySelector(".cards-box");
   const cardsHeight = document.querySelector(".hiden-cards-box");
   const hiddenCards = document.querySelectorAll(".hiden-cards");
+  const shopCardsbox = document.querySelector(".shop-cards-box");
+  const buttonNext = document.querySelector(".button-next");
+  const buttonNextTwo = document.querySelector(".button-next2");
 
   cardsBox.classList.remove("hide");
   cardsHeight.classList.remove("height");
+  buttonNext.classList.remove("hide");
+  buttonNextTwo.classList.remove("hide");
+  shopCardsbox.classList.remove("more-height");
+  shopCardsbox.classList.remove("more-height2");
   hiddenCards.forEach((card) => card.classList.add("hiden"));
 
   updateCardsDisplay(shopCards);
 });
+
+localStorage.setItem("shopCards", JSON.stringify(shopCards));
