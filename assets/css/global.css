@@ -5,6 +5,8 @@
 :root {
   --color-error: #ff0000;
   --color-success: #49d822;
+  --color-accent: #cbb11e;
+  --color-info: #5e5ed7;
 }
 
 .container-xl {

@@ -12,7 +12,8 @@
       justify-items: center;
       gap: 10px;
       padding: 10px;
-      height: 1085px;
+      height: 100%;
+      max-height: 1085px;
       overflow: hidden;
 
       &.more-height {
@@ -69,7 +70,14 @@
 
           .visible-block {
             height: 120px;
+
             .card-item {
+              margin: 10px 0;
+
+              &.available {
+                color: var(--color-info);
+              }
+
               &.name {
                 height: 22px;
                 overflow: hidden;
@@ -81,7 +89,7 @@
                 }
 
                 &.wait-stock {
-                  color: #d8d51b;
+                  color: var(--color-accent);
                 }
 
                 &.out-stock {
@@ -172,7 +180,7 @@
                   }
 
                   &.wait-stock {
-                    color: #d8d51b;
+                    color: var(--color-accent);
                   }
 
                   &.out-stock {
@@ -213,6 +221,11 @@
             margin: 0 50px;
             display: flex;
             align-items: center;
+
+            .counter-value {
+              margin-left: 10px;
+              width: 60px;
+            }
 
             .count-plus,
             .count-minus {
@@ -270,7 +283,8 @@
   &.more-height {
     .cards-box-wrapper {
       .cards-box {
-        height: 2170px;
+        height: 100%;
+        max-height: 2170px;
         overflow: hidden;
       }
     }
@@ -279,7 +293,8 @@
       .cards-box-wrapper {
         .cards-box {
           height: 100%;
-          max-height: 3340px;
+          max-height: max-content;
+
           overflow: hidden;
         }
       }

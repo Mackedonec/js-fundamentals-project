@@ -427,6 +427,7 @@ function renderCard(shopCards) {
               ${card.searchName} (${card.brand}, ${card.series}, ${card.model})
             </h3>
             <p class="card-item stock ${card.dataStock}" data-stock="${card.dataStock}">${card.stockName}</p>
+            <p class="card-item available ${card.dataStock}" >Залишок ${card.stock} од.</p>
             <p class="card-item prise">
               ціна: <span data-price="${card.dataPrice}">${card.price}</span>
             </p>
@@ -477,7 +478,7 @@ function renderHidenCard(shopCards) {
               </p>
               <p class="card-item stock ${card.dataStock}" data-stock="${card.dataStock}">${card.stockName}</p>
               <p class="card-item prise">
-                ціна: <span data-price="${card.dataPrice}">${card.price}</span>
+                ціна: <span class="prise-value" data-price="${card.dataPrice}">${card.price}</span>
               </p>
                <p class="card-item brand" data-brand="brand-${card.dataBrand}">${card.brand}</p>
               <p class="card-item series" data-series="series-${card.dataSeries}">${card.series}</p>
@@ -499,7 +500,8 @@ function renderHidenCard(shopCards) {
               value="1"
               data-count="shop-count-${card.id}"
             />
-            <button class="count-plus ${card.dataStock}">+</button>
+             <button class="count-plus ${card.dataStock}">+</button>
+             <p class="counter-value">${card.price}</p>
           </div>
           <button class="add-item ${card.dataStock} button">Купити</button>
         </div>
@@ -510,8 +512,6 @@ function renderHidenCard(shopCards) {
   cardContainer.innerHTML = cardsHtml;
 }
 renderHidenCard(shopCards);
-
-//---------------------------------
 
 function renderAllCards() {
   renderCard(shopCards);
@@ -699,6 +699,60 @@ function initializeCardEventListeners() {
 }
 
 renderAllCards();
+
+const counterContainer = document.querySelector(".shop-counter");
+const inputField = counterContainer.querySelector(".shop-count");
+const counterValue = document.querySelector(".counter-value");
+const priseValue = document.querySelector(".prise-value");
+
+const CounterValue = document
+  .querySelector(".hiden-cards-box")
+  .addEventListener("click", function (event) {
+    if (event.target.classList.contains("count-plus")) {
+      const inputField = event.target.previousElementSibling;
+      inputField.value = parseInt(inputField.value) + 1;
+    }
+
+    if (event.target.classList.contains("count-minus")) {
+      const inputField = event.target.nextElementSibling;
+      const currentValue = parseInt(inputField.value);
+      if (currentValue > 0) {
+        inputField.value = currentValue - 1;
+      }
+    }
+
+    if (event.target.classList.contains("remove-hiden")) {
+      const targetGroup = event.target.closest(".hiden-cards");
+      targetGroup.classList.add("hiden");
+      document.querySelector(".cards-box").classList.remove("hide");
+      document.querySelector(".hiden-cards-box").classList.remove("height");
+
+      const inputField = targetGroup.querySelector(".shop-count");
+      if (inputField) {
+        inputField.value = 1;
+      }
+    }
+
+    updateCounterValues();
+  });
+
+function updateCounterValues() {
+  const cards = document.querySelectorAll(".hiden-cards");
+
+  cards.forEach((card) => {
+    const inputField = card.querySelector(".shop-count");
+    const counterValue = card.querySelector(".counter-value");
+    const priseValue = card.querySelector(".prise-value");
+
+    if (inputField && priseValue) {
+      const quantity = parseInt(inputField.value);
+      const price = parseFloat(priseValue.textContent);
+      const sum = quantity * price;
+      counterValue.textContent = sum;
+    }
+  });
+}
+updateCounterValues();
 
 const resetButton = document.querySelector(".search-reset");
 

@@ -1,6 +1,3 @@
-const headers = document.querySelectorAll(".search-group-header");
-const counterContainer = document.querySelector(".shop-counter");
-const inputField = counterContainer.querySelector(".shop-count");
 const buttonNext = document.querySelector(".button-next");
 const buttonNextTwo = document.querySelector(".button-next2");
 const shopCardsbox = document.querySelector(".shop-cards-box");
@@ -13,34 +10,7 @@ buttonNextTwo.addEventListener("click", function () {
   shopCardsbox.classList.add("more-height2");
 });
 
-const shopCountButtons = document
-  .querySelector(".hiden-cards-box")
-  .addEventListener("click", function (event) {
-    if (event.target.classList.contains("count-plus")) {
-      const inputField = event.target.previousElementSibling;
-      inputField.value = parseInt(inputField.value) + 1;
-    }
-
-    if (event.target.classList.contains("count-minus")) {
-      const inputField = event.target.nextElementSibling;
-      const currentValue = parseInt(inputField.value);
-      if (currentValue > 0) {
-        inputField.value = currentValue - 1;
-      }
-    }
-
-    if (event.target.classList.contains("remove-hiden")) {
-      const targetGroup = event.target.closest(".hiden-cards");
-      targetGroup.classList.add("hiden");
-      document.querySelector(".cards-box").classList.remove("hide");
-      document.querySelector(".hiden-cards-box").classList.remove("height");
-
-      const inputField = targetGroup.querySelector(".shop-count");
-      if (inputField) {
-        inputField.value = 1;
-      }
-    }
-  });
+const headers = document.querySelectorAll(".search-group-header");
 
 headers.forEach((header) => {
   header.addEventListener("click", function (event) {

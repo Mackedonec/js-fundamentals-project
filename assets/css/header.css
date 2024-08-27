@@ -106,11 +106,11 @@
         }
 
         &.info {
-          color: blue;
+          color: var(--color-info);
         }
 
         &.accent {
-          color: #eb8006;
+          color: var(--color-accent);
         }
 
         &.succes {
