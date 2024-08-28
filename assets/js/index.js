@@ -4,7 +4,7 @@ function init() {
   import("./form-registr.js");
   import("./form-login.js");
   import("./iflogin.js");
-  import("./shop-search.js");
+  import("./shop-edit.js");
   import("./shop-functionality.js");
 }
 
