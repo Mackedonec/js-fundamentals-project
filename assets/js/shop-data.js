@@ -1,376 +1,6 @@
-const shopCards = [
-  {
-    id: 1,
-    img: "assets/img/tamplate.png",
-    searchName: "Якісний товар",
-    price: "9999",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-    dataBrand: "brand-1",
-    dataSeries: "series-1",
-    series: "Якась серія 1",
-    dataModel: "model-1",
-    dataCountry: "country-1",
-    dataColor: "color-1",
-    stock: 101,
-  },
-  {
-    id: 2,
-    img: "assets/img/tamplate.png",
-    searchName: "Гарний товар",
-    price: "7500",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-    dataBrand: "brand-2",
-    dataSeries: "series-2",
-    series: "Якась серія 2",
-    dataModel: "model-2",
-    dataCountry: "country-2",
-    dataColor: "color-3",
-    stock: 50,
-  },
-  {
-    id: 3,
-    img: "assets/img/tamplate.png",
-    searchName: "Дуже якісний товар",
-    price: "11000",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-1",
-    dataSeries: "series-3",
-    dataModel: "model-2",
-    dataCountry: "country-3",
-    dataColor: "color-3",
-    stock: 50,
-  },
-  {
-    id: 4,
-    img: "assets/img/tamplate.png",
-    searchName: "Дорогий та якісний товар",
-    price: "18000",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-4",
-    dataSeries: "series-1",
-    dataModel: "model-2",
-    dataCountry: "country-3",
-    dataColor: "color-others",
-    stock: 40,
-  },
-  {
-    id: 5,
-    img: "assets/img/tamplate.png",
-    searchName: "Дешевий товар",
-    price: "5000",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-4",
-    dataSeries: "series-1",
-    dataModel: "model-6",
-    dataCountry: "country-2",
-    dataColor: "color-2",
-    stock: 70,
-  },
-  {
-    id: 6,
-    img: "assets/img/tamplate.png",
-    searchName: "Дешевий не якісний товар",
-    price: "2500",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-others",
-    dataSeries: "series-others",
-    dataModel: "model-others",
-    dataCountry: "country-others",
-    dataColor: "color-3",
-    stock: 70,
-  },
-  {
-    id: 7,
-    img: "assets/img/tamplate.png",
-    searchName: "Дуже дорогий товар",
-    price: "23000",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-5",
-    dataSeries: "series-1",
-    dataModel: "model-3",
-    dataCountry: "country-4",
-    dataColor: "color-1",
-    stock: 45,
-  },
-  {
-    id: 8,
-    img: "assets/img/tamplate.png",
-    searchName: "Просто товар",
-    price: "7500",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-3",
-    dataSeries: "series-others",
-    dataModel: "model-5",
-    dataCountry: "country-3",
-    dataColor: "color-3",
-    stock: 80,
-  },
-  {
-    id: 9,
-    img: "assets/img/tamplate.png",
-    searchName: "Гарний товар",
-    price: "9500",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-2",
-    dataSeries: "series-1",
-    dataModel: "model-5",
-    dataCountry: "country-others",
-    dataColor: "color-1",
-    stock: 9,
-  },
-  {
-    id: 10,
-    img: "assets/img/tamplate.png",
-    searchName: "Дуже дорогий товар",
-    price: "24000",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-4",
-    dataSeries: "series-3",
-    dataModel: "model-3",
-    dataCountry: "country-1",
-    dataColor: "color-3",
-    stock: 15,
-  },
-  {
-    id: 11,
-    img: "assets/img/tamplate.png",
-    searchName: "Якісний товар",
-    price: "9999",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
-    dataBrand: "brand-1",
-    dataSeries: "series-1",
-    dataModel: "model-1",
-    dataCountry: "country-1",
-    dataColor: "color-1",
-    stock: 100,
-  },
-  {
-    id: 12,
-    img: "assets/img/tamplate.png",
-    searchName: "Гарний товар",
-    price: "7500",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-2",
-    dataSeries: "series-2",
-    dataModel: "model-2",
-    dataCountry: "country-2",
-    dataColor: "color-2",
-    stock: 50,
-  },
-  {
-    id: 13,
-    img: "assets/img/tamplate.png",
-    searchName: "Дуже якісний товар",
-    price: "11000",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-1",
-    dataSeries: "series-3",
-    dataModel: "model-2",
-    dataCountry: "country-3",
-    dataColor: "color-3",
-    stock: 50,
-  },
-  {
-    id: 14,
-    img: "assets/img/tamplate.png",
-    searchName: "Дорогий та якісний товар",
-    price: "18000",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-4",
-    dataSeries: "series-1",
-    dataModel: "model-2",
-    dataCountry: "country-3",
-    dataColor: "color-others",
-    stock: 40,
-  },
-  {
-    id: 15,
-    img: "assets/img/tamplate.png",
-    searchName: "Дешевий товар",
-    price: "5000",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-4",
-    dataSeries: "series-1",
-    dataModel: "model-6",
-    dataCountry: "country-2",
-    dataColor: "color-2",
-    stock: 70,
-  },
-  {
-    id: 16,
-    img: "assets/img/tamplate.png",
-    searchName: "Дешевий не якісний товар",
-    price: "2500",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-others",
-    dataSeries: "series-others",
-    dataModel: "model-others",
-    dataCountry: "country-others",
-    dataColor: "color-3",
-    stock: 70,
-  },
-  {
-    id: 17,
-    img: "assets/img/tamplate.png",
-    searchName: "Дуже дорогий товар",
-    price: "23000",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-5",
-    dataSeries: "series-1",
-    dataModel: "model-3",
-    dataCountry: "country-4",
-    dataColor: "color-1",
-    stock: 45,
-  },
-  {
-    id: 18,
-    img: "assets/img/tamplate.png",
-    searchName: "Просто товар",
-    price: "7500",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-3",
-    dataSeries: "series-others",
-    dataModel: "model-5",
-    dataCountry: "country-3",
-    dataColor: "color-3",
-    stock: 80,
-  },
-  {
-    id: 19,
-    img: "assets/img/tamplate.png",
-    searchName: "Гарний товар",
-    price: "9500",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-2",
-    dataSeries: "series-1",
-    dataModel: "model-5",
-    dataCountry: "country-others",
-    dataColor: "color-1",
-    stock: 9,
-  },
-  {
-    id: 20,
-    img: "assets/img/tamplate.png",
-    searchName: "Дуже дорогий товар",
-    price: "24000",
-    cardDescript: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ",
-    dataBrand: "brand-4",
-    dataSeries: "series-3",
-    dataModel: "model-3",
-    dataCountry: "country-1",
-    dataColor: "color-3",
-    stock: 15,
-  },
-].map((card) => {
-  switch (true) {
-    case card.stock > 10:
-      card.dataStock = "in-stock";
-      card.stockName = "Є в наявності";
-      break;
-    case card.stock > 0:
-      card.dataStock = "wait-stock";
-      card.stockName = "Товар закінчується";
-      break;
-    default:
-      card.dataStock = "out-stock";
-      card.stockName = "Товар закінчився";
-  }
+let storedCards = JSON.parse(localStorage.getItem("shopCards")) || [];
 
-  switch (card.dataColor) {
-    case "color-1":
-      card.color = "Якийсь колір 1";
-      break;
-    case "color-2":
-      card.color = "Якийсь колір 2";
-      break;
-    case "color-3":
-      card.color = "Якийсь колір 3";
-      break;
-    default:
-      card.color = "Інший колір";
-  }
-
-  switch (card.dataSeries) {
-    case "series-1":
-      card.series = "Якась серія 1";
-      break;
-    case "series-2":
-      card.series = "Якась серія 2";
-      break;
-    case "series-3":
-      card.series = "Якась серія 3";
-      break;
-    default:
-      card.series = "Інша серія";
-  }
-
-  switch (card.dataCountry) {
-    case "country-1":
-      card.country = "Якась країна 1";
-      break;
-    case "country-2":
-      card.country = "Якась країна 2";
-      break;
-    case "country-3":
-      card.country = "Якась країна 3";
-      break;
-    case "country-4":
-      card.country = "Якась країна 4";
-      break;
-    default:
-      card.country = "Інша країна";
-  }
-
-  switch (card.dataModel) {
-    case "model-1":
-      card.model = "Якась модель 1";
-      break;
-    case "model-2":
-      card.model = "Якась модель 2";
-      break;
-    case "model-3":
-      card.model = "Якась модель 3";
-      break;
-    case "model-4":
-      card.model = "Якась модель 4";
-      break;
-    case "model-5":
-      card.model = "Якась модель 5";
-      break;
-    case "model-6":
-      card.model = "Якась модель 6";
-      break;
-    default:
-      card.model = "Інша модель";
-  }
-
-  switch (card.dataBrand) {
-    case "brand-1":
-      card.brand = "Виробник 1";
-      break;
-    case "brand-2":
-      card.brand = "Виробник 2";
-      break;
-    case "brand-3":
-      card.brand = "Виробник 3";
-      break;
-    case "brand-4":
-      card.brand = "Виробник 4";
-      break;
-    case "brand-5":
-      card.brand = "Виробник 5";
-      break;
-    case "brand-6":
-      card.brand = "Виробник 6";
-      break;
-    default:
-      card.brand = "Інший виробник";
-  }
-
-  return card;
-});
-
-localStorage.setItem("shopCards", JSON.stringify(shopCards));
+let shopCards = [].concat(storedCards);
 
 function renderCard(shopCards) {
   let cardsHtml = "";
@@ -477,6 +107,40 @@ function renderAllCards() {
   renderCard(shopCards);
   renderHidenCard(shopCards);
   initializeCardEventListeners();
+}
+
+let cardData = JSON.parse(localStorage.getItem("shopCards"));
+
+if (!Array.isArray(cardData)) {
+  cardData = [];
+}
+
+const firstCard = {
+  id: 1,
+  img: "assets/img/tamplate.png",
+  searchName: "Якісний товар",
+  price: 15000,
+  cardDescript: "Якісний товар",
+  dataBrand: "brand-1",
+  brand: "Виробник 1",
+  dataSeries: "series-1",
+  series: "Якась серія 1",
+  dataModel: "model-1",
+  model: "Якась модель 1",
+  dataCountry: "country-1",
+  country: "Якась країна 1",
+  dataColor: "color-1",
+  color: "Якийсь колір 1",
+  stock: 50,
+  dataStock: "in-stock",
+  stockName: "Є в наявності",
+};
+
+const firstCardExists = cardData.some((data) => data.id === firstCard.id);
+
+if (!firstCardExists) {
+  cardData.push(firstCard);
+  localStorage.setItem("shopCards", JSON.stringify(cardData));
 }
 
 function filterCards(
@@ -767,12 +431,144 @@ resetButton.addEventListener("click", function () {
   updateCardsDisplay(shopCards);
 });
 
-// ============================================================================================================
-
-function saveShopCards() {
-  localStorage.setItem("shopCards", JSON.stringify(shopCards));
+function saveToLocalStorage(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
 }
 
-saveShopCards();
+saveToLocalStorage("shopCards", shopCards);
 
-console.table(shopCards);
+// ============================================================================================================
+
+document.getElementById("submit").addEventListener("click", function (event) {
+  // event.preventDefault();
+
+  function getBrand(dataBrandInput) {
+    switch (dataBrandInput) {
+      case "brand-1":
+        return "Виробник 1";
+      case "brand-2":
+        return "Виробник 2";
+      case "brand-3":
+        return "Виробник 3";
+      case "brand-4":
+        return "Виробник 4";
+      case "brand-5":
+        return "Виробник 5";
+      case "brand-6":
+        return "Виробник 6";
+      default:
+        return "Інший виробник";
+    }
+  }
+
+  function getSeries(dataSeriesInput) {
+    switch (dataSeriesInput) {
+      case "series-1":
+        return "Якась серія 1";
+      case "series-2":
+        return "Якась серія 2";
+      case "series-3":
+        return "Якась серія 3";
+      default:
+        return "Інша серія";
+    }
+  }
+
+  function getModel(dataModelInput) {
+    switch (dataModelInput) {
+      case "model-1":
+        return "Якась модель 1";
+      case "model-2":
+        return "Якась модель 2";
+      case "model-3":
+        return "Якась модель 3";
+      case "model-4":
+        return "Якась модель 4";
+      case "model-5":
+        return "Якась модель 5";
+      case "model-6":
+        return "Якась модель 6";
+      default:
+        return "Інша модель";
+    }
+  }
+
+  function getCountry(dataCountryInput) {
+    switch (dataCountryInput) {
+      case "country-1":
+        return "Якась країна 1";
+      case "country-2":
+        return "Якась країна 2";
+      case "country-3":
+        return "Якась країна 3";
+      case "country-4":
+        return "Якась країна 4";
+      default:
+        return "Інша країна";
+    }
+  }
+
+  function getColor(dataColorInput) {
+    switch (dataColorInput) {
+      case "color-1":
+        return "Якийсь колір 1";
+      case "color-2":
+        return "Якийсь колір 2";
+      case "color-3":
+        return "Якийсь колір 3";
+      default:
+        return "Інший колір";
+    }
+  }
+
+  function getStockStatus(stockInput) {
+    if (stockInput >= 25) {
+      return { dataStock: "in-stock", stockName: "Є в наявності" };
+    } else if (stockInput > 0) {
+      return { dataStock: "wait-stock", stockName: "Товар закінчується" };
+    } else {
+      return { dataStock: "out-stock", stockName: "Товар закінчився" };
+    }
+  }
+
+  const idInput = document.querySelector("#id").value;
+  const imgInput = document.querySelector("#img").value;
+  const searchNameInput = document.querySelector("#searchName").value;
+  const priceInput = document.querySelector("#price").value;
+  const cardDescriptInput = document.querySelector("#cardDescript").value;
+  const dataBrandInput = document.querySelector("#dataBrand").value;
+  const dataSeriesInput = document.querySelector("#dataSeries").value;
+  const dataModelInput = document.querySelector("#dataModel").value;
+  const dataCountryInput = document.querySelector("#dataCountry").value;
+  const dataColorInput = document.querySelector("#dataColor").value;
+  const stockInput = parseInt(document.querySelector("#stock").value, 10);
+
+  const cards = {
+    id: parseInt(idInput, 10),
+    img: imgInput,
+    searchName: searchNameInput,
+    price: parseInt(priceInput, 10),
+    cardDescript: cardDescriptInput,
+    dataBrand: dataBrandInput,
+    brand: getBrand(dataBrandInput),
+    dataSeries: dataSeriesInput,
+    series: getSeries(dataSeriesInput),
+    dataModel: dataModelInput,
+    model: getModel(dataModelInput),
+    dataCountry: dataCountryInput,
+    country: getCountry(dataCountryInput),
+    dataColor: dataColorInput,
+    color: getColor(dataColorInput),
+    stock: stockInput,
+    ...getStockStatus(stockInput),
+  };
+
+  shopCards.push(cards);
+
+  localStorage.setItem("shopCards", JSON.stringify(shopCards));
+
+  renderAllCards();
+});
+console.table(JSON.parse(localStorage.getItem("shopCards")));
+
+// localStorage.clear(shopCards);

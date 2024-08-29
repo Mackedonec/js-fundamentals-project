@@ -1,11 +1,11 @@
-function init() {
-  import("./shop-data.js");
-  import("./guest-nav.js");
-  import("./form-registr.js");
-  import("./form-login.js");
-  import("./iflogin.js");
-  import("./shop-edit.js");
-  import("./shop-functionality.js");
+async function init() {
+  await import("./shop-data.js");
+  await import("./guest-nav.js");
+  await import("./form-registr.js");
+  await import("./form-login.js");
+  await import("./iflogin.js");
+  await import("./shop-edit.js");
+  await import("./shop-functionality.js");
 }
 
 const totalPartials = document.querySelectorAll(
