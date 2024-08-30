@@ -1,6 +1,16 @@
 const buttonNext = document.querySelector(".button-next");
 const buttonNextTwo = document.querySelector(".button-next2");
 const shopCardsbox = document.querySelector(".shop-cards-box");
+const closeEditor = document.querySelector(".close-editor");
+const main = document.querySelector(".main");
+const headerNav = document.querySelector(".header-nav");
+const formEdit = document.querySelector(".forms-editor-wrapper");
+
+closeEditor.addEventListener("click", function () {
+  main.classList.remove("hide");
+  headerNav.classList.remove("hide");
+  formEdit.classList.add("hide");
+});
 
 buttonNext.addEventListener("click", function () {
   shopCardsbox.classList.add("more-height");
