@@ -83,17 +83,17 @@ function renderHidenCard(shopCards) {
         <div class="button-box">
           <button class="remove-hiden button">Закрити</button>
           <div class="shop-counter">
-            <button class="count-minus ${card.dataStock}">-</button>
+            <button class="count-minus">-</button>
             <input
               type="number"
-              class="shop-count ${card.dataStock}"
+              class="shop-count"
               value="1"
               data-count="shop-count-${card.id}"
             />
-             <button class="count-plus ${card.dataStock}">+</button>
+             <button class="count-plus ">+</button>
              <p class="counter-value">${card.price}</p>
           </div>
-          <button class="add-item ${card.dataStock} button">Купити</button>
+          <button class="add-item button">Купити</button>
         </div>
       </div>
     `;
@@ -457,8 +457,6 @@ const formAdd = document
           return "Виробник 4";
         case "brand-5":
           return "Виробник 5";
-        case "brand-6":
-          return "Виробник 6";
         default:
           return "Інший виробник";
       }
@@ -806,4 +804,4 @@ const formEdit = document
 
 console.table(JSON.parse(localStorage.getItem("shopCards")));
 
-// localStorage.clear(shopCards);
+// localStorage.clear();
