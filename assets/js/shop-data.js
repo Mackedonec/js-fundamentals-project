@@ -87,13 +87,13 @@ function renderHidenCard(shopCards) {
             <input
               type="number"
               class="shop-count"
-              value="1"
+              value="0"
               data-count="shop-count-${card.id}"
             />
              <button class="count-plus ">+</button>
              <p class="counter-value">${card.price}</p>
           </div>
-          <button class="add-item button">Купити</button>
+          <button class="add-item button" disabled>Купити</button>
         </div>
       </div>
     `;
@@ -107,40 +107,6 @@ function renderAllCards() {
   renderCard(shopCards);
   renderHidenCard(shopCards);
   initializeCardEventListeners();
-}
-
-let cardData = JSON.parse(localStorage.getItem("shopCards"));
-
-if (!Array.isArray(cardData)) {
-  cardData = [];
-}
-
-const firstCard = {
-  id: 1,
-  img: "assets/img/tamplate.png",
-  searchName: "Якісний товар",
-  price: 15000,
-  cardDescript: "Якісний товар",
-  dataBrand: "brand-1",
-  brand: "Виробник 1",
-  dataSeries: "series-1",
-  series: "Якась серія 1",
-  dataModel: "model-1",
-  model: "Якась модель 1",
-  dataCountry: "country-1",
-  country: "Якась країна 1",
-  dataColor: "color-1",
-  color: "Якийсь колір 1",
-  stock: 50,
-  dataStock: "in-stock",
-  stockName: "Є в наявності",
-};
-
-const firstCardExists = cardData.some((data) => data.id === firstCard.id);
-
-if (!firstCardExists) {
-  cardData.push(firstCard);
-  localStorage.setItem("shopCards", JSON.stringify(cardData));
 }
 
 function filterCards(
@@ -324,34 +290,37 @@ function initializeCardEventListeners() {
 
 renderAllCards();
 
-const counterContainer = document.querySelector(".shop-counter");
-const inputField = counterContainer.querySelector(".shop-count");
-const counterValue = document.querySelector(".counter-value");
-const priseValue = document.querySelector(".prise-value");
-
 function updateCounterValues() {
   const cards = document.querySelectorAll(".hiden-cards");
 
   cards.forEach((card) => {
     const inputField = card.querySelector(".shop-count");
-    const counterValue = card.querySelector(".counter-value");
-    const priseValue = card.querySelector(".prise-value");
     const countPlusButton = card.querySelector(".count-plus");
-    const stock = parseInt(
-      card.querySelector(".card-item.stock").dataset.stock,
-      10
-    );
+    const addItemButton = card.querySelector(".add-item");
+    const counterValue = card.querySelector(".counter-value");
 
-    if (inputField && priseValue) {
-      const quantity = parseInt(inputField.value, 10);
-      const price = parseFloat(priseValue.textContent);
-      const sum = quantity * price;
-      counterValue.textContent = sum;
+    if (inputField) {
+      const stock = parseInt(
+        card.querySelector(".card-item.stock").dataset.stock,
+        10
+      );
+      const price = parseInt(
+        card.querySelector(".prise-value").textContent,
+        10
+      );
 
-      if (quantity >= stock) {
+      if (stock === 0) {
+        inputField.value = 0;
         countPlusButton.disabled = true;
+        addItemButton.disabled = true;
       } else {
-        countPlusButton.disabled = false;
+        const quantity = parseInt(inputField.value, 10);
+        countPlusButton.disabled = quantity >= stock;
+        addItemButton.disabled = quantity > stock || quantity <= 0;
+
+        // Оновлення загальної ціни
+        const total = price * quantity;
+        counterValue.textContent = total.toString();
       }
     }
   });
@@ -360,9 +329,13 @@ function updateCounterValues() {
 const CounterValue = document
   .querySelector(".hiden-cards-box")
   .addEventListener("click", function (event) {
+    let currentValue;
+    let cardId;
+
     if (event.target.classList.contains("count-plus")) {
       const inputField = event.target.previousElementSibling;
-      let currentValue = parseInt(inputField.value, 10);
+      currentValue = parseInt(inputField.value, 10);
+      cardId = inputField.dataset.count.split("-")[2];
       const stock = parseInt(
         inputField.closest(".hiden-cards").querySelector(".card-item.stock")
           .dataset.stock,
@@ -370,15 +343,29 @@ const CounterValue = document
       );
 
       if (currentValue < stock) {
-        inputField.value = currentValue + 1;
+        currentValue++;
+        inputField.value = currentValue;
       }
     }
 
     if (event.target.classList.contains("count-minus")) {
       const inputField = event.target.nextElementSibling;
-      let currentValue = parseInt(inputField.value, 10);
+      currentValue = parseInt(inputField.value, 10);
+      cardId = inputField.dataset.count.split("-")[2];
       if (currentValue > 0) {
-        inputField.value = currentValue - 1;
+        currentValue--;
+        inputField.value = currentValue;
+      }
+    }
+
+    if (typeof currentValue !== "undefined" && typeof cardId !== "undefined") {
+      const cardIndex = shopCards.findIndex(
+        (card) => card.id === parseInt(cardId)
+      );
+
+      if (cardIndex !== -1) {
+        shopCards[cardIndex].currentValue = currentValue;
+        saveToLocalStorage("shopCards", shopCards);
       }
     }
 
@@ -390,11 +377,21 @@ const CounterValue = document
 
       const inputField = targetGroup.querySelector(".shop-count");
       if (inputField) {
-        inputField.value = 1;
+        inputField.value = 0;
+
+        const cardId = targetGroup.dataset.card;
+        const cardIndex = shopCards.findIndex(
+          (card) => card.id === parseInt(cardId)
+        );
+
+        if (cardIndex !== -1) {
+          shopCards[cardIndex].currentValue = 1;
+          saveToLocalStorage("shopCards", shopCards);
+        }
       }
     }
 
-    updateCounterValues();
+    updateCounterValues(); // Оновлення значення при кожній взаємодії
   });
 
 const resetButton = document.querySelector(".search-reset");
@@ -437,8 +434,14 @@ function saveToLocalStorage(key, data) {
 
 saveToLocalStorage("shopCards", shopCards);
 
-// ============================================================================================================
+// ===============================
 
+// ============================================================================================================
+function updateCardsAfterAdd() {
+  shopCards = JSON.parse(localStorage.getItem("shopCards")) || [];
+  renderAllCards();
+  updateFilters();
+}
 const formAdd = document
   .getElementById("submit-add")
   .addEventListener("click", function (event) {
@@ -544,9 +547,9 @@ const formAdd = document
     const dataColorInput = document.querySelector("#dataColor-add").value;
     const stockInput = parseInt(document.querySelector("#stock-add").value, 10);
 
-    if (!idInput) {
-      valid = false;
-    }
+    // if (!idInput) {
+    //   valid = false;
+    // }
 
     if (!imgInput) {
       valid = false;
@@ -584,12 +587,12 @@ const formAdd = document
       valid = false;
     }
 
-    if (!stockInput) {
+    if (stockInput === "") {
       valid = false;
     }
 
     const cards = {
-      id: parseInt(idInput, 10),
+      id: parseInt(shopCards.length + 1, 10),
       img: imgInput,
       searchName: searchNameInput,
       price: parseInt(priceInput, 10),
@@ -610,10 +613,8 @@ const formAdd = document
 
     if (valid) {
       shopCards.push(cards);
-
       localStorage.setItem("shopCards", JSON.stringify(shopCards));
-
-      renderAllCards();
+      updateCardsAfterAdd(); // Оновлюємо картки
     }
   });
 
@@ -768,7 +769,7 @@ const formEdit = document
       valid = false;
     }
 
-    if (!stockInput) {
+    if (stockInput === "") {
       valid = false;
     }
 
@@ -777,31 +778,34 @@ const formEdit = document
         (card) => card.id === parseInt(idInput, 10)
       );
 
-      shopCards[existingCardIndex] = {
-        id: shopCards[existingCardIndex].id,
-        img: imgInput,
-        searchName: searchNameInput,
-        price: parseInt(priceInput, 10),
-        cardDescript: cardDescriptInput,
-        dataBrand: dataBrandInput,
-        brand: getBrand(dataBrandInput),
-        dataSeries: dataSeriesInput,
-        series: getSeries(dataSeriesInput),
-        dataModel: dataModelInput,
-        model: getModel(dataModelInput),
-        dataCountry: dataCountryInput,
-        country: getCountry(dataCountryInput),
-        dataColor: dataColorInput,
-        color: getColor(dataColorInput),
-        stock: stockInput,
-        ...getStockStatus(stockInput),
-      };
+      if (existingCardIndex !== -1) {
+        shopCards[existingCardIndex] = {
+          id: shopCards[existingCardIndex].id,
+          img: imgInput,
+          searchName: searchNameInput,
+          price: parseInt(priceInput, 10),
+          cardDescript: cardDescriptInput,
+          dataBrand: dataBrandInput,
+          brand: getBrand(dataBrandInput),
+          dataSeries: dataSeriesInput,
+          series: getSeries(dataSeriesInput),
+          dataModel: dataModelInput,
+          model: getModel(dataModelInput),
+          dataCountry: dataCountryInput,
+          country: getCountry(dataCountryInput),
+          dataColor: dataColorInput,
+          color: getColor(dataColorInput),
+          stock: stockInput,
+          ...getStockStatus(stockInput),
+        };
 
-      localStorage.setItem("shopCards", JSON.stringify(shopCards));
-      renderAllCards();
+        localStorage.setItem("shopCards", JSON.stringify(shopCards));
+        updateCardsAfterAdd(); // Оновлюємо картки та фільтри після редагування
+      }
     }
   });
+function updateFilters() {}
 
 console.table(JSON.parse(localStorage.getItem("shopCards")));
 
-// localStorage.clear();
+// localStorage.clear(shopCards);

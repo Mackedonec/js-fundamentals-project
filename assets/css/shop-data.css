@@ -262,13 +262,13 @@
             &::after {
               position: absolute;
               content: "";
-              background-image: url(../img/done.svg);
+              background-image: url(../img/check-out-icon.png);
               background-size: cover;
-              background-color: var(--color-success);
-              top: 2px;
+
+              top: 0;
               right: 5px;
-              width: 15px;
-              height: 15px;
+              width: 20px;
+              height: 20px;
             }
           }
         }

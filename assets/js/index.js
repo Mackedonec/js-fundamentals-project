@@ -1,9 +1,8 @@
 async function init() {
-  await import("./shop-data.js");
-  await import("./shop-functionality.js");
-  await import("./shop-basket.js");
-  await import("./guest-nav.js");
-  await import("./form-registr.js");
+  import("./shop-data.js");
+  import("./shop-functionality.js");
+  import("./shop-basket.js");
+  import("./form-registr.js");
   await import("./form-login.js");
   await import("./iflogin.js");
 }

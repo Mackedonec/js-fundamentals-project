@@ -1,5 +1,3 @@
-import { bottonReqVisible, bottonLogVisible } from "./guest-nav.js";
-
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
 if (loggedInUser) {
@@ -9,12 +7,16 @@ if (loggedInUser) {
   const main = document.querySelector(".main");
   const headerNav = document.querySelector(".header-nav");
   const cardEeditor = document.querySelector(".card-editor");
+  const basketReglog = document.querySelector(".basket-reglog");
+  const bottonReqVisible = document.querySelector(".guest-registration");
+  const bottonLogVisible = document.querySelector(".guest-enter");
 
   if (userNameElement) {
     bottonReqVisible.classList.add("hide");
     bottonLogVisible.classList.add("hide");
     userNameElement.innerText = `${loggedInUser.firstname}`;
     userButtomExit.classList.add("block");
+    basketReglog.classList.add("hide");
   }
   if (loggedInUser.username === "Administrator") {
     cardEeditor.classList.remove("hide");
@@ -23,6 +25,7 @@ if (loggedInUser) {
       main.classList.add("hide");
       headerNav.classList.add("hide");
       formEdit.classList.remove("hide");
+      basketReglog.classList.add("hide");
     });
   }
 }

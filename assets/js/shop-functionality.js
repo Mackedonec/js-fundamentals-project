@@ -5,6 +5,72 @@ const closeEditor = document.querySelector(".close-editor");
 const main = document.querySelector(".main");
 const headerNav = document.querySelector(".header-nav");
 const formEdit = document.querySelector(".forms-editor-wrapper");
+const guestImgWrapper = document.querySelector(".guest-img-wrapper");
+const shopBasketWapper = document.querySelector(".shop-basket-wrapper");
+const bottonReq = document.querySelector(".registration");
+const bottonLog = document.querySelector(".enter");
+const footer = document.querySelector(".footer");
+const formRegVisible = document.querySelector(".formreq-box");
+const formLogVisible = document.querySelector(".formlog-box");
+const basketClosed = document.querySelector(".basket-closed");
+const bottonRegUnVisible = document.querySelector(".closedreg");
+const bottonLogUnVisible = document.querySelector(".closedlog");
+const bottonReqVisible = document.querySelector(".guest-registration");
+const bottonLogVisible = document.querySelector(".guest-enter");
+
+bottonReqVisible.addEventListener("click", function () {
+  formRegVisible.classList.add("visible");
+  main.classList.add("hide");
+  footer.classList.add("hide");
+});
+
+bottonLogVisible.addEventListener("click", function () {
+  formLogVisible.classList.add("visible");
+  main.classList.add("hide");
+  footer.classList.add("hide");
+});
+
+bottonRegUnVisible.addEventListener("click", function () {
+  formRegVisible.classList.remove("visible");
+  main.classList.remove("hide");
+  footer.classList.add("hide");
+  shopBasketWapper.classList.add("hide");
+});
+
+bottonLogUnVisible.addEventListener("click", function () {
+  formLogVisible.classList.remove("visible");
+  main.classList.remove("hide");
+  footer.classList.add("hide");
+  shopBasketWapper.classList.add("hide");
+});
+
+basketClosed.addEventListener("click", function () {
+  main.classList.remove("hide");
+  headerNav.classList.remove("hide");
+  shopBasketWapper.classList.add("hide");
+});
+
+guestImgWrapper.addEventListener("click", function () {
+  main.classList.add("hide");
+  headerNav.classList.add("hide");
+  shopBasketWapper.classList.remove("hide");
+});
+
+bottonReq.addEventListener("click", function () {
+  formRegVisible.classList.add("visible");
+  main.classList.add("hide");
+  footer.classList.add("hide");
+  shopBasketWapper.classList.add("hide");
+  headerNav.classList.remove("hide");
+});
+
+bottonLog.addEventListener("click", function () {
+  formLogVisible.classList.add("visible");
+  main.classList.add("hide");
+  footer.classList.add("hide");
+  shopBasketWapper.classList.add("hide");
+  headerNav.classList.remove("hide");
+});
 
 closeEditor.addEventListener("click", function () {
   main.classList.remove("hide");
