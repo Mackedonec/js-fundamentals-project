@@ -1,10 +1,10 @@
-async function init() {
+function init() {
   import("./shop-data.js");
-  import("./shop-functionality.js");
   import("./shop-basket.js");
   import("./form-registr.js");
-  await import("./form-login.js");
-  await import("./iflogin.js");
+  import("./form-login.js");
+  import("./iflogin.js");
+  import("./shop-functionality.js");
 }
 
 const totalPartials = document.querySelectorAll(

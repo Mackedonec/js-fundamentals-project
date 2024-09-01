@@ -17,6 +17,11 @@ const bottonRegUnVisible = document.querySelector(".closedreg");
 const bottonLogUnVisible = document.querySelector(".closedlog");
 const bottonReqVisible = document.querySelector(".guest-registration");
 const bottonLogVisible = document.querySelector(".guest-enter");
+// const cardWrapper = document.querySelector(".card-wrapper ");
+
+// cardWrapper.addEventListener("click", function () {
+//   location.reload();
+// });
 
 bottonReqVisible.addEventListener("click", function () {
   formRegVisible.classList.add("visible");

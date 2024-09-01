@@ -43,6 +43,7 @@ addItemButtons.forEach((button) => {
       event.currentTarget.closest(".hiden-cards").dataset.card,
       10
     );
+    location.reload();
     addToBasket(cardId);
   });
 });
