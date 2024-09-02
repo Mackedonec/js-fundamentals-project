@@ -1,5 +1,8 @@
 <div class="shop-basket-wrapper hide">
-  <button class="basket-closed button">закрити</button>
+  <div class="basket-buttons">
+    <button class="basket-closed button">Закрити</button>
+    <button class="basket-clear button">Очистити</button>
+  </div>
   <div class="basket-items-box"></div>
   <p class="total-price"></p>
   <div class="basket-reglog">
@@ -7,4 +10,25 @@
     <button class="registration button">Реєстрація</button>
     <button class="enter button">Вхід</button>
   </div>
+  <button class="basket-complete button hide">Оформити</button>
+</div>
+
+<div class="complete-form hide">
+  <div class="complete-form-input-group">
+    <label for="complete-first-name">Ім'я:</label>
+    <input type="text" id="complete-first-name" name="complete-first-name" />
+  </div>
+  <div class="complete-form-input-group">
+    <label for="complete-last-name">Призвище:</label>
+    <input type="text" id="complete-last-name" name="complete-last-name" />
+  </div>
+  <div class="complete-form-input-group">
+    <label for="complete-phone-name">Телефон:</label>
+    <input type="number" id="complete-phone-name" name="complete-phone-name" />
+  </div>
+  <div class="complete-form-input-group">
+    <label for="complete-adress-name">Адреса:</label>
+    <input type="text" id="complete-adress-name" name="complete-adress-name" />
+  </div>
+  <button class="complete-form-success button">Завершити</button>
 </div>

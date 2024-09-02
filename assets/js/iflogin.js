@@ -10,6 +10,7 @@ if (loggedInUser) {
   const basketReglog = document.querySelector(".basket-reglog");
   const bottonReqVisible = document.querySelector(".guest-registration");
   const bottonLogVisible = document.querySelector(".guest-enter");
+  const basketComplete = document.querySelector(".basket-complete");
 
   if (userNameElement) {
     bottonReqVisible.classList.add("hide");
@@ -17,6 +18,7 @@ if (loggedInUser) {
     userNameElement.innerText = `${loggedInUser.firstname}`;
     userButtomExit.classList.add("block");
     basketReglog.classList.add("hide");
+    basketComplete.classList.remove("hide");
   }
   if (loggedInUser.username === "Administrator") {
     cardEeditor.classList.remove("hide");

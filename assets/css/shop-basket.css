@@ -62,7 +62,33 @@
     margin-top: 50px;
   }
 
-  .basket-reglog {
-    text-align: center;
+  .basket-buttons {
+    margin: 30px 10px;
+
+    .basket-clear {
+      margin-left: 25px;
+    }
   }
+
+  .basket-reglog {
+    margin-top: 50px;
+    text-align: center;
+
+    .reglog-info {
+      margin-bottom: 40px;
+    }
+
+    .registration {
+      margin-right: 25px;
+    }
+  }
+}
+.complete-form {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

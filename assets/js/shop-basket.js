@@ -179,10 +179,14 @@ function updateTotalPrice() {
 
   const totalPriceElement = document.querySelector(".total-price");
   const basketReglog = document.querySelector(".basket-reglog");
+  const basketClear = document.querySelector(".basket-clear");
+  const basketComplete = document.querySelector(".basket-complete");
 
   if (shopBasket.length === 0) {
     totalPriceElement.textContent = `Корзина пуста`;
     basketReglog.classList.add("hide");
+    basketClear.classList.add("hide");
+    basketComplete.disabled = true;
   } else {
     totalPriceElement.textContent = `Загальна вартість: ${totalPrice} грн`;
   }

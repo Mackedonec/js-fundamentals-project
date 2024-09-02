@@ -436,7 +436,6 @@ saveToLocalStorage("shopCards", shopCards);
 function updateCardsAfterAdd() {
   shopCards = JSON.parse(localStorage.getItem("shopCards")) || [];
   renderAllCards();
-  renderHidenCard(shopCards);
 }
 
 const formEdit = document
@@ -487,8 +486,6 @@ const formEdit = document
           return "Якась модель 4";
         case "model-5":
           return "Якась модель 5";
-        case "model-6":
-          return "Якась модель 6";
         default:
           return "Інша модель";
       }
@@ -619,7 +616,7 @@ const formEdit = document
 
       localStorage.setItem("shopCards", JSON.stringify(shopCards));
       renderAllCards();
-      renderHidenCard(shopCards);
+      location.reload();
     }
   });
 
@@ -671,8 +668,7 @@ document
           return "Якась модель 4";
         case "model-5":
           return "Якась модель 5";
-        case "model-6":
-          return "Якась модель 6";
+
         default:
           return "Інша модель";
       }
@@ -763,6 +759,7 @@ document
       shopCards.push(newCard);
       localStorage.setItem("shopCards", JSON.stringify(shopCards));
       updateCardsAfterAdd();
+      location.reload();
     }
   });
 
@@ -770,4 +767,4 @@ localStorage.setItem("shopCards", JSON.stringify(shopCards));
 
 console.table(JSON.parse(localStorage.getItem("shopCards")));
 
-// localStorage.clear(shopCards);
+localStorage.removeItem("shopCards");

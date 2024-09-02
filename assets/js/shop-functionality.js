@@ -17,11 +17,25 @@ const bottonRegUnVisible = document.querySelector(".closedreg");
 const bottonLogUnVisible = document.querySelector(".closedlog");
 const bottonReqVisible = document.querySelector(".guest-registration");
 const bottonLogVisible = document.querySelector(".guest-enter");
-// const cardWrapper = document.querySelector(".card-wrapper ");
+const basketClear = document.querySelector(".basket-clear");
+const basketComplete = document.querySelector(".basket-complete");
+const basketForm = document.querySelector(".complete-form");
+const basketFormSuccess = document.querySelector(".complete-form-success");
 
-// cardWrapper.addEventListener("click", function () {
-//   location.reload();
-// });
+basketFormSuccess.addEventListener("click", function () {
+  localStorage.removeItem("shopBasket");
+  location.reload();
+});
+
+basketComplete.addEventListener("click", function () {
+  shopBasketWapper.classList.add("hide");
+  basketForm.classList.remove("hide");
+});
+
+basketClear.addEventListener("click", function () {
+  localStorage.removeItem("shopBasket");
+  location.reload();
+});
 
 bottonReqVisible.addEventListener("click", function () {
   formRegVisible.classList.add("visible");
