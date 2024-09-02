@@ -767,4 +767,4 @@ localStorage.setItem("shopCards", JSON.stringify(shopCards));
 
 console.table(JSON.parse(localStorage.getItem("shopCards")));
 
-localStorage.removeItem("shopCards");
+// localStorage.removeItem('shopCards');
