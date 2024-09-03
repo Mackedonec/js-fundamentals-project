@@ -108,12 +108,20 @@
 
     &::before {
       left: 0;
-      background: linear-gradient(to right, #53525267 1%, transparent 100%);
+      background: linear-gradient(
+        to right,
+        var(--color-light-gray) 1%,
+        transparent 100%
+      );
     }
 
     &::after {
       right: 0;
-      background: linear-gradient(to left, #53525267 1%, transparent 100%);
+      background: linear-gradient(
+        to left,
+        var(--color-light-gray) 1%,
+        transparent 100%
+      );
     }
 
     .slide {

@@ -7,6 +7,10 @@
   --color-success: #49d822;
   --color-accent: #cbb11e;
   --color-info: #5e5ed7;
+  --color-primary: #ffffff;
+  --color-secondary: #000000;
+  --color-gray: #808080;
+  --color-light-gray: #53525267;
 }
 
 .container-xl {
@@ -32,7 +36,7 @@
   &::after {
     content: "";
     position: absolute;
-    background-color: black;
+    background-color: var(--color-secondary);
     width: 100%;
     height: 2px;
     bottom: 0;

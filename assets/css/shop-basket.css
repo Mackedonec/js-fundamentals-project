@@ -47,7 +47,7 @@
           width: 45px;
           height: 30px;
           text-align: center;
-          border: 1px solid black;
+          border: 1px solid var(--color-secondary);
           margin: 0 20px;
         }
 
@@ -58,6 +58,7 @@
       }
     }
   }
+
   .total-price {
     margin-top: 50px;
   }
@@ -83,12 +84,24 @@
     }
   }
 }
+
 .complete-form {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  padding-top: 150px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
+
+  .complete-form-input-group {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid var(--color-secondary);
+    border-radius: 5px;
+  }
 }
