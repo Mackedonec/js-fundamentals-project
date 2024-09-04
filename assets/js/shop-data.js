@@ -105,7 +105,7 @@ renderHidenCard(shopCards);
 
 function renderAllCards() {
   renderCard(shopCards);
-  // renderHidenCard(shopCards);
+  renderHidenCard(shopCards);
   initializeCardEventListeners();
 }
 
@@ -168,7 +168,7 @@ function filterCards(
 
 function updateCardsDisplay(filteredCards) {
   renderCard(filteredCards);
-  // renderHidenCard(filteredCards);
+  renderHidenCard(filteredCards);
   initializeCardEventListeners();
 }
 
@@ -438,96 +438,97 @@ function updateCardsAfterAdd() {
   renderAllCards();
 }
 
+function getBrand(dataBrandInput) {
+  switch (dataBrandInput) {
+    case "brand-1":
+      return "Виробник 1";
+    case "brand-2":
+      return "Виробник 2";
+    case "brand-3":
+      return "Виробник 3";
+    case "brand-4":
+      return "Виробник 4";
+    case "brand-5":
+      return "Виробник 5";
+    default:
+      return "Інший виробник";
+  }
+}
+
+function getSeries(dataSeriesInput) {
+  switch (dataSeriesInput) {
+    case "series-1":
+      return "Якась серія 1";
+    case "series-2":
+      return "Якась серія 2";
+    case "series-3":
+      return "Якась серія 3";
+    default:
+      return "Інша серія";
+  }
+}
+
+function getModel(dataModelInput) {
+  switch (dataModelInput) {
+    case "model-1":
+      return "Якась модель 1";
+    case "model-2":
+      return "Якась модель 2";
+    case "model-3":
+      return "Якась модель 3";
+    case "model-4":
+      return "Якась модель 4";
+    case "model-5":
+      return "Якась модель 5";
+
+    default:
+      return "Інша модель";
+  }
+}
+
+function getCountry(dataCountryInput) {
+  switch (dataCountryInput) {
+    case "country-1":
+      return "Якась країна 1";
+    case "country-2":
+      return "Якась країна 2";
+    case "country-3":
+      return "Якась країна 3";
+    case "country-4":
+      return "Якась країна 4";
+    default:
+      return "Інша країна";
+  }
+}
+
+function getColor(dataColorInput) {
+  switch (dataColorInput) {
+    case "color-1":
+      return "Якийсь колір 1";
+    case "color-2":
+      return "Якийсь колір 2";
+    case "color-3":
+      return "Якийсь колір 3";
+    default:
+      return "Інший колір";
+  }
+}
+
+function getStockStatus(stockInput) {
+  if (stockInput >= 25) {
+    return { dataStock: "in-stock", stockName: "Є в наявності" };
+  } else if (stockInput > 0) {
+    return { dataStock: "wait-stock", stockName: "Товар закінчується" };
+  } else {
+    return { dataStock: "out-stock", stockName: "Товар закінчився" };
+  }
+}
+
 const formEdit = document
   .getElementById("submit-edit")
   .addEventListener("click", function (event) {
     event.preventDefault();
     let valid = true;
-
-    function getBrand(dataBrandInput) {
-      switch (dataBrandInput) {
-        case "brand-1":
-          return "Виробник 1";
-        case "brand-2":
-          return "Виробник 2";
-        case "brand-3":
-          return "Виробник 3";
-        case "brand-4":
-          return "Виробник 4";
-        case "brand-5":
-          return "Виробник 5";
-        default:
-          return "Інший виробник";
-      }
-    }
-
-    function getSeries(dataSeriesInput) {
-      switch (dataSeriesInput) {
-        case "series-1":
-          return "Якась серія 1";
-        case "series-2":
-          return "Якась серія 2";
-        case "series-3":
-          return "Якась серія 3";
-        default:
-          return "Інша серія";
-      }
-    }
-
-    function getModel(dataModelInput) {
-      switch (dataModelInput) {
-        case "model-1":
-          return "Якась модель 1";
-        case "model-2":
-          return "Якась модель 2";
-        case "model-3":
-          return "Якась модель 3";
-        case "model-4":
-          return "Якась модель 4";
-        case "model-5":
-          return "Якась модель 5";
-        default:
-          return "Інша модель";
-      }
-    }
-
-    function getCountry(dataCountryInput) {
-      switch (dataCountryInput) {
-        case "country-1":
-          return "Якась країна 1";
-        case "country-2":
-          return "Якась країна 2";
-        case "country-3":
-          return "Якась країна 3";
-        case "country-4":
-          return "Якась країна 4";
-        default:
-          return "Інша країна";
-      }
-    }
-
-    function getColor(dataColorInput) {
-      switch (dataColorInput) {
-        case "color-1":
-          return "Якийсь колір 1";
-        case "color-2":
-          return "Якийсь колір 2";
-        case "color-3":
-          return "Якийсь колір 3";
-        default:
-          return "Інший колір";
-      }
-    }
-
-    function getStockStatus(stockInput) {
-      if (stockInput >= 25) {
-        return { dataStock: "in-stock", stockName: "Є в наявності" };
-      } else if (stockInput > 0) {
-        return { dataStock: "wait-stock", stockName: "Товар закінчується" };
-      } else {
-        return { dataStock: "out-stock", stockName: "Товар закінчився" };
-      }
-    }
 
     const idInput = document.querySelector("#id-edit").value;
     const imgInput = document.querySelector("#img-edit").value;
@@ -626,92 +627,6 @@ document
     event.preventDefault();
     let valid = true;
 
-    function getBrand(dataBrandInput) {
-      switch (dataBrandInput) {
-        case "brand-1":
-          return "Виробник 1";
-        case "brand-2":
-          return "Виробник 2";
-        case "brand-3":
-          return "Виробник 3";
-        case "brand-4":
-          return "Виробник 4";
-        case "brand-5":
-          return "Виробник 5";
-        default:
-          return "Інший виробник";
-      }
-    }
-
-    function getSeries(dataSeriesInput) {
-      switch (dataSeriesInput) {
-        case "series-1":
-          return "Якась серія 1";
-        case "series-2":
-          return "Якась серія 2";
-        case "series-3":
-          return "Якась серія 3";
-        default:
-          return "Інша серія";
-      }
-    }
-
-    function getModel(dataModelInput) {
-      switch (dataModelInput) {
-        case "model-1":
-          return "Якась модель 1";
-        case "model-2":
-          return "Якась модель 2";
-        case "model-3":
-          return "Якась модель 3";
-        case "model-4":
-          return "Якась модель 4";
-        case "model-5":
-          return "Якась модель 5";
-
-        default:
-          return "Інша модель";
-      }
-    }
-
-    function getCountry(dataCountryInput) {
-      switch (dataCountryInput) {
-        case "country-1":
-          return "Якась країна 1";
-        case "country-2":
-          return "Якась країна 2";
-        case "country-3":
-          return "Якась країна 3";
-        case "country-4":
-          return "Якась країна 4";
-        default:
-          return "Інша країна";
-      }
-    }
-
-    function getColor(dataColorInput) {
-      switch (dataColorInput) {
-        case "color-1":
-          return "Якийсь колір 1";
-        case "color-2":
-          return "Якийсь колір 2";
-        case "color-3":
-          return "Якийсь колір 3";
-        default:
-          return "Інший колір";
-      }
-    }
-
-    function getStockStatus(stockInput) {
-      if (stockInput >= 25) {
-        return { dataStock: "in-stock", stockName: "Є в наявності" };
-      } else if (stockInput > 0) {
-        return { dataStock: "wait-stock", stockName: "Товар закінчується" };
-      } else {
-        return { dataStock: "out-stock", stockName: "Товар закінчився" };
-      }
-    }
-
     const idInput = document.querySelector("#id-add").value;
     const imgInput = document.querySelector("#img-add").value;
     const searchNameInput = document.querySelector("#searchName-add").value;
@@ -763,8 +678,40 @@ document
     }
   });
 
+if (shopCards.length === 0) {
+  for (let i = 0; i < 30; i++) {
+    const randomStock = Math.floor(Math.random() * 150);
+    const randomPrice = Math.floor(Math.random() * 25000) + 1000;
+    const roundedPrice = Math.round(randomPrice / 100) * 100;
+
+    const generatedCard = {
+      id: i + 1,
+      img: `assets/img/tamplate.png`,
+      searchName: `Товар ${i + 1}`,
+      price: roundedPrice,
+      cardDescript: `Опис товару ${i + 1}`,
+      dataBrand: `brand-${(i % 5) + 1}`,
+      brand: getBrand(`brand-${(i % 5) + 1}`),
+      dataSeries: `series-${(i % 3) + 1}`,
+      series: getSeries(`series-${(i % 3) + 1}`),
+      dataModel: `model-${(i % 5) + 1}`,
+      model: getModel(`model-${(i % 5) + 1}`),
+      dataCountry: `country-${(i % 4) + 1}`,
+      country: getCountry(`country-${(i % 4) + 1}`),
+      dataColor: `color-${(i % 3) + 1}`,
+      color: getColor(`color-${(i % 3) + 1}`),
+      stock: randomStock,
+      ...getStockStatus(randomStock),
+    };
+
+    shopCards.push(generatedCard);
+    localStorage.setItem("shopCards", JSON.stringify(shopCards));
+    updateCardsAfterAdd();
+  }
+}
+
 localStorage.setItem("shopCards", JSON.stringify(shopCards));
 
 console.table(JSON.parse(localStorage.getItem("shopCards")));
 
-// localStorage.removeItem('shopCards');
+// localStorage.removeItem("shopCards");
