@@ -679,15 +679,36 @@ document
   });
 
 if (shopCards.length === 0) {
+  const cardsBoxButton = document.querySelector(".cards-box-button");
+  cardsBoxButton.classList.remove("hide");
   for (let i = 0; i < 30; i++) {
     const randomStock = Math.floor(Math.random() * 150);
     const randomPrice = Math.floor(Math.random() * 25000) + 1000;
     const roundedPrice = Math.round(randomPrice / 100) * 100;
 
+    function randomeName() {
+      let x = Math.floor(Math.random() * 6);
+      if (x === 1) {
+        return "Дуже якісний товар";
+      } else if (x === 2) {
+        return "Якісний товар";
+      } else if (x === 3) {
+        return "Дешевий товар";
+      } else if (x === 4) {
+        return "Гарний товар";
+      } else if (x === 5) {
+        return "Дуже гарний товар";
+      } else if (x === 6) {
+        return "Просто якісний товар";
+      } else {
+        return "Просто товар";
+      }
+    }
+
     const generatedCard = {
       id: i + 1,
       img: `assets/img/tamplate.png`,
-      searchName: `Товар ${i + 1}`,
+      searchName: randomeName(),
       price: roundedPrice,
       cardDescript: `Опис товару ${i + 1}`,
       dataBrand: `brand-${(i % 5) + 1}`,

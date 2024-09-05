@@ -21,6 +21,12 @@ const basketClear = document.querySelector(".basket-clear");
 const basketComplete = document.querySelector(".basket-complete");
 const basketForm = document.querySelector(".complete-form");
 const basketFormSuccess = document.querySelector(".complete-form-success");
+const cardsBoxButton = document.querySelector(".cards-box-button");
+
+cardsBoxButton.addEventListener("click", function () {
+  localStorage.removeItem("shopCards");
+  location.reload();
+});
 
 basketFormSuccess.addEventListener("click", function () {
   localStorage.removeItem("shopBasket");
