@@ -679,8 +679,6 @@ document
   });
 
 if (shopCards.length === 0) {
-  const cardsBoxButton = document.querySelector(".cards-box-button");
-  cardsBoxButton.classList.remove("hide");
   for (let i = 0; i < 30; i++) {
     const randomStock = Math.floor(Math.random() * 150);
     const randomPrice = Math.floor(Math.random() * 25000) + 1000;
@@ -729,6 +727,11 @@ if (shopCards.length === 0) {
     localStorage.setItem("shopCards", JSON.stringify(shopCards));
     updateCardsAfterAdd();
   }
+}
+
+if (shopCards.length < 5) {
+  const cardsBoxButton = document.querySelector(".cards-box-button");
+  cardsBoxButton.classList.remove("hide");
 }
 
 localStorage.setItem("shopCards", JSON.stringify(shopCards));
